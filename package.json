@@ -1,0 +1,13 @@
+{
+  "name": "rp-lackierung",
+  "version": "1.0.0",
+  "description": "R+P Lackierung GmbH — Lackiererei & Autowerkstatt Boxberg",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve",
+    "clean": "rm -rf _site"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}

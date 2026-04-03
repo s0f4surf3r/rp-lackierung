@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if title %}{{ title }} — {% endif %}R+P Lackierung GmbH</title>
+  <meta name="description" content="{{ description or 'Ihr Lackierer- & Kfz-Meister in Boxberg: Autolackierung, Unfallinstandsetzung, Kfz-Werkstatt, Oldtimer-Restauration.' }}">
+  <meta property="og:title" content="{{ title or 'R+P Lackierung GmbH — Lackiererei & Autowerkstatt Boxberg' }}">
+  <meta property="og:description" content="{{ description or 'Ihr Lackierer- & Kfz-Meister in Boxberg: Autolackierung, Unfallinstandsetzung, Kfz-Werkstatt, Oldtimer-Restauration.' }}">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="R+P Lackierung GmbH">
+  <meta property="og:image" content="/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="theme-color" content="#12141a">
+  <link rel="canonical" href="https://rp-lackierung.pages.dev{{ page.url }}">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/images/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="{{ bodyClass or '' }}">
+
+  <header class="site-header">
+    <div class="header-top">
+      <div class="container header-top-inner">
+        <a href="tel:07930990111" class="header-phone">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.55.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.25 1.02l-2.2 2.22z"/></svg>
+          07930 - 990111
+        </a>
+        <a href="mailto:info@rp-lackierung.de" class="header-email">info@rp-lackierung.de</a>
+      </div>
+    </div>
+
+    <div class="header-main">
+      <div class="container header-main-inner">
+        <a href="/" class="logo">
+          <img src="/images/logo.png" alt="R+P Lackierung GmbH" width="300" height="100">
+        </a>
+
+        <button class="burger" aria-label="Menü öffnen" onclick="document.body.classList.toggle('menu-open')">
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="main-nav" id="main-nav">
+          <a href="/" {% if page.url == '/' %}aria-current="page"{% endif %}>Willkommen</a>
+          <a href="/wir-ueber-uns/" {% if page.url == '/wir-ueber-uns/' %}aria-current="page"{% endif %}>Wir über uns</a>
+          <div class="nav-dropdown {% if page.url and '/werkstatt/' in page.url %}is-active{% endif %}">
+            <button class="nav-dropdown-toggle">Werkstatt Leistungen <svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
+            <div class="nav-dropdown-menu">
+              <a href="/werkstatt/fahrzeugaufbereitung/">Fahrzeugaufbereitung</a>
+              <a href="/werkstatt/fahrzeugdiagnose/">Fahrzeugdiagnose</a>
+              <a href="/werkstatt/inspektion/">Inspektion</a>
+              <a href="/werkstatt/karosseriearbeiten/">Karosseriearbeiten</a>
+              <a href="/werkstatt/motorradreparatur/">Motorradreparatur</a>
+              <a href="/werkstatt/reifenservice/">Reifenservice</a>
+              <a href="/werkstatt/smart-spot-repair/">Smart- &amp; Spot-Repair</a>
+              <a href="/werkstatt/unfallservice/">Unfallservice</a>
+            </div>
+          </div>
+          <div class="nav-dropdown {% if page.url and '/lackieren/' in page.url %}is-active{% endif %}">
+            <button class="nav-dropdown-toggle">Lackieren <svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
+            <div class="nav-dropdown-menu">
+              <a href="/lackieren/teillackierung/">Teillackierung</a>
+              <a href="/lackieren/komplettlackierung/">Komplettlackierung</a>
+              <a href="/lackieren/motorrad-fahrrad/">Motorrad- &amp; Fahrradlackierung</a>
+              <a href="/lackieren/moebel-kunststoff/">Möbel- &amp; Kunststofflackierung</a>
+              <a href="/lackieren/designlackierung/">Designlackierung</a>
+            </div>
+          </div>
+          <div class="nav-dropdown {% if page.url and '/oldtimer/' in page.url %}is-active{% endif %}">
+            <button class="nav-dropdown-toggle">Oldtimer <svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
+            <div class="nav-dropdown-menu">
+              <a href="/oldtimer/restauration/">Restauration</a>
+              <a href="/oldtimer/lackierung/">Lackierung</a>
+            </div>
+          </div>
+          <a href="/kontakt/" {% if page.url == '/kontakt/' %}aria-current="page"{% endif %}>Kontakt &amp; Anfahrt</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">&copy; 2026 &mdash; R+P Lackierung GmbH &middot; Alle Rechte vorbehalten</p>
+      <nav class="footer-nav">
+        <a href="/kontakt/">Kontakt</a>
+        <a href="/impressum/">Impressum</a>
+        <a href="/datenschutz/">Datenschutz</a>
+      </nav>
+    </div>
+  </footer>
+
+  <a href="tel:07930990111" class="fab-phone" aria-label="Anrufen">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.55.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.25 1.02l-2.2 2.22z"/></svg>
+  </a>
+
+  <script>
+  /* Dropdown toggles on mobile */
+  document.querySelectorAll('.nav-dropdown-toggle').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      if (window.innerWidth <= 900) {
+        e.preventDefault();
+        var parent = this.parentElement;
+        var wasOpen = parent.classList.contains('is-open');
+        document.querySelectorAll('.nav-dropdown.is-open').forEach(function(d) { d.classList.remove('is-open'); });
+        if (!wasOpen) parent.classList.add('is-open');
+      }
+    });
+  });
+
+  /* Close menu on link click */
+  document.querySelectorAll('.main-nav > a, .nav-dropdown-menu a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      document.body.classList.remove('menu-open');
+    });
+  });
+
+  /* Scroll Reveal (global — works on all pages) */
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.reveal').forEach(function(el) { revealObserver.observe(el); });
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutomotiveBusiness",
+    "name": "R+P Lackierung GmbH",
+    "description": "Ihr Lackierer- & Kfz-Meister in Boxberg: Autolackierung, Unfallinstandsetzung, Kfz-Werkstatt, Oldtimer-Restauration.",
+    "url": "https://rp-lackierung.pages.dev/",
+    "logo": "https://rp-lackierung.pages.dev/images/logo.png",
+    "telephone": "07930-990111",
+    "email": "info@rp-lackierung.de",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Robert-Bosch-Straße 6/B",
+      "addressLocality": "Boxberg",
+      "postalCode": "97944",
+      "addressCountry": "DE"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:30", "closes": "18:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:30", "closes": "12:00" }
+    ]
+  }
+  </script>
+</body>
+</html>

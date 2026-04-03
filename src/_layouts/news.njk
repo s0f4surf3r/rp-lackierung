@@ -1,0 +1,11 @@
+---
+layout: base.njk
+---
+<article class="page-content">
+  <div class="container">
+    <a href="/" class="back-link">&larr; Zur&uuml;ck zur Startseite</a>
+    <h1>{{ title }}</h1>
+    <p class="news-date">{{ date | readableDate }}</p>
+    {{ content | safe }}
+  </div>
+</article>

@@ -5,176 +5,74 @@ bodyClass: home-page
 description: "R+P Lackierung GmbH — Ihr Lackierer- & Kfz-Meister in Boxberg: Autolackierung, Unfallinstandsetzung, Kfz-Werkstatt, Oldtimer-Restauration."
 ---
 
-{# === HERO === #}
+{# === HERO IMAGE === #}
+<div class="hero-banner">
+  <img src="/images/hero-paint.webp" alt="Professionelle Fahrzeuglackierung in der Lackierkabine" width="1024" height="1024" loading="eager" fetchpriority="high">
+  <div class="hero-banner-overlay"></div>
+</div>
+
+{# === HERO CONTENT === #}
 <section class="hero">
   <div class="container hero-inner">
     <div class="hero-content reveal">
-      <h1>Lackiererei und Autowerkstatt in Boxberg</h1>
-      <p><strong>R+P Lackierung GmbH</strong></p>
-      <p>Robert-Bosch-Straße 6/B<br>97944 Boxberg</p>
+      <p class="hero-tagline">Meisterbetrieb in Boxberg</p>
+      <h1>Lack. Blech. Technik.</h1>
+      <p class="hero-sub">Unfallinstandsetzung, Lackierung und Kfz-Werkstatt &mdash; alles aus einer Hand. Seit &uuml;ber 20 Jahren.</p>
 
-      <div class="hero-contact">
-        <a href="tel:07930990111">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.55.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.25 1.02l-2.2 2.22z"/></svg>
-          07930 - 990111
+      <div class="hero-actions">
+        <a href="tel:07930990111" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.55.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.25 1.02l-2.2 2.22z"/></svg>
+          07930 / 990111
         </a>
-        <a href="mailto:info@rp-lackierung.de">info@rp-lackierung.de</a>
-      </div>
-
-      <div style="margin-top: 2rem;">
-        <div class="info-tabs">
-          <button class="info-tab active" onclick="showTab('address')" id="tab-address">Adresse</button>
-          <button class="info-tab" onclick="showTab('hours')" id="tab-hours">Öffnungszeiten</button>
-        </div>
-        <div class="info-panel" id="panel-address">
-          <p><strong>R+P Lackierung GmbH</strong></p>
-          <p>Robert-Bosch-Straße 6/B<br>97944 Boxberg</p>
-          <p style="margin-top: 1rem;">
-            <a href="https://maps.google.com/?q=Robert-Bosch-Straße+6/B+97944+Boxberg" target="_blank" rel="noopener">Route planen &rarr;</a>
-          </p>
-        </div>
-        <div class="info-panel" id="panel-hours" hidden>
-          <table class="hours-table">
-            <tr><td>Montag</td><td>07:30 – 18:00 Uhr</td></tr>
-            <tr><td>Dienstag</td><td>07:30 – 18:00 Uhr</td></tr>
-            <tr><td>Mittwoch</td><td>07:30 – 18:00 Uhr</td></tr>
-            <tr><td>Donnerstag</td><td>07:30 – 18:00 Uhr</td></tr>
-            <tr><td>Freitag</td><td>07:30 – 18:00 Uhr</td></tr>
-            <tr><td>Samstag</td><td>08:30 – 12:00 Uhr</td></tr>
-            <tr><td>Sonntag</td><td class="hours-closed">geschlossen</td></tr>
-          </table>
-        </div>
+        <a href="/kontakt/" class="btn btn-secondary">Kontakt &amp; Anfahrt</a>
       </div>
     </div>
 
-    <div class="hero-cta-box reveal">
-      <p class="hero-tagline">Ihr Fachbetrieb seit &uuml;ber 20 Jahren</p>
-      <h2>Termin vereinbaren</h2>
-      <p>Rufen Sie uns an oder schreiben Sie uns. Wir beraten Sie gerne pers&ouml;nlich zu Lackierung, Reparatur oder Inspektion.</p>
-      <a href="tel:07930990111" class="btn btn-primary">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.55.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.25 1.02l-2.2 2.22z"/></svg>
-        07930 - 990111
-      </a>
-      <a href="mailto:info@rp-lackierung.de" class="btn btn-secondary">E-Mail schreiben</a>
+    <div class="hero-info reveal">
+      <div class="info-tabs">
+        <button class="info-tab active" onclick="showTab('address')" id="tab-address">Adresse</button>
+        <button class="info-tab" onclick="showTab('hours')" id="tab-hours">&Ouml;ffnungszeiten</button>
+      </div>
+      <div class="info-panel" id="panel-address">
+        <p><strong>R+P Lackierung GmbH</strong></p>
+        <p>Robert-Bosch-Stra&szlig;e 6/B<br>97944 Boxberg</p>
+        <p class="panel-link">
+          <a href="https://maps.google.com/?q=Robert-Bosch-Straße+6/B+97944+Boxberg" target="_blank" rel="noopener">Route planen &rarr;</a>
+        </p>
+      </div>
+      <div class="info-panel" id="panel-hours" hidden>
+        <table class="hours-table">
+          <tr><td>Montag &ndash; Freitag</td><td>07:30 &ndash; 18:00 Uhr</td></tr>
+          <tr><td>Samstag</td><td>08:30 &ndash; 12:00 Uhr</td></tr>
+          <tr><td>Sonntag</td><td class="hours-closed">geschlossen</td></tr>
+        </table>
+      </div>
     </div>
   </div>
 </section>
 
-{# === NEWS === #}
+{# === NEWS aus Collection === #}
 <section class="news-section">
   <div class="container">
     <h2 class="section-title reveal">Aktuelles &amp; Tipps</h2>
 
     <div class="news-grid">
-
+      {%- for post in collections.news | reverse %}
+      {%- if loop.index <= 12 %}
       <article class="news-card reveal">
-        <div class="news-card-placeholder">&#9883;</div>
-        <div class="news-card-body">
-          <h3 class="news-card-title"><a href="/news/frohe-ostern/">Frohe Ostertage.</a></h3>
-          <p class="news-card-excerpt">Wir w&uuml;nschen all unseren Kunden, Bekannten und Besuchern der Website ein frohes Osterfest! Und denken Sie daran: nach Ostern wird umger&uuml;stet.&hellip;</p>
-          <a href="/news/frohe-ostern/" class="news-card-link">Weiterlesen &rarr;</a>
-        </div>
-      </article>
-
-      <article class="news-card reveal">
+        {% if post.data.image %}
+        <img src="{{ post.data.image }}" alt="{{ post.data.title }}" class="news-card-image" width="1024" height="1024" loading="lazy">
+        {% else %}
         <div class="news-card-placeholder">&#9881;</div>
+        {% endif %}
         <div class="news-card-body">
-          <h3 class="news-card-title"><a href="/news/reifenwechsel/">Von &lsquo;O&rsquo; bis &lsquo;O&rsquo;. Jetzt an den Reifenwechsel denken.</a></h3>
-          <p class="news-card-excerpt">Jeder Autofahrer kennt die Faustregel von &lsquo;O(ktober)&rsquo; bis &lsquo;O(stern)&rsquo;. Die Temperaturen steigen allm&auml;hlich.&hellip;</p>
-          <a href="/news/reifenwechsel/" class="news-card-link">Weiterlesen &rarr;</a>
+          <h3 class="news-card-title"><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+          <p class="news-card-excerpt">{{ post.data.excerpt }}</p>
+          <a href="{{ post.url }}" class="news-card-link">Weiterlesen &rarr;</a>
         </div>
       </article>
-
-      <article class="news-card reveal">
-        <div class="news-card-placeholder">&#9670;</div>
-        <div class="news-card-body">
-          <h3 class="news-card-title"><a href="/news/innenraumfilter/">Der Pollenf&auml;nger: Innenraumfilter.</a></h3>
-          <p class="news-card-excerpt">Die Pollensaison begann bereits im Februar mit dem Flug von Haselstrauch und Erle und endet im Oktober mit der Ambrosia.&hellip;</p>
-          <a href="/news/innenraumfilter/" class="news-card-link">Weiterlesen &rarr;</a>
-        </div>
-      </article>
-
-      <article class="news-card reveal">
-        <div class="news-card-placeholder">&#9728;</div>
-        <div class="news-card-body">
-          <h3 class="news-card-title"><a href="/news/kratzer-scheibe/">Die Morgensonne deckt auf: Kratzer auf der Scheibe.</a></h3>
-          <p class="news-card-excerpt">Die Tage werden l&auml;nger und die Sonne ist wieder h&auml;ufiger zu sehen. Was in der dunklen Jahreszeit oft versteckt bleibt&hellip;</p>
-          <a href="/news/kratzer-scheibe/" class="news-card-link">Weiterlesen &rarr;</a>
-        </div>
-      </article>
-
-      <article class="news-card reveal">
-        <div class="news-card-placeholder">&#9744;</div>
-        <div class="news-card-body">
-          <h3 class="news-card-title"><a href="/news/kofferraumwanne/">Kofferraumwanne. Praktisch.</a></h3>
-          <p class="news-card-excerpt">Ausflug in den Bau- oder Gartenmarkt geplant? Blumen sowie Baumaterialien hinterlassen oft ihre Spuren im Kofferraum.&hellip;</p>
-          <a href="/news/kofferraumwanne/" class="news-card-link">Weiterlesen &rarr;</a>
-        </div>
-      </article>
-
-      <article class="news-card reveal">
-        <div class="news-card-placeholder">&#9889;</div>
-        <div class="news-card-body">
-          <h3 class="news-card-title"><a href="/news/anhaenger-leuchten/">Anh&auml;nger. Diese Leuchten sind Pflicht.</a></h3>
-          <p class="news-card-excerpt">Wer einen Anh&auml;nger hinter sein Fahrzeug spannt, muss einiges beachten. Hierbei spielen Abmessungen und Lasten eine Rolle&hellip;</p>
-          <a href="/news/anhaenger-leuchten/" class="news-card-link">Weiterlesen &rarr;</a>
-        </div>
-      </article>
-
-      <article class="news-card reveal">
-        <div class="news-card-placeholder">&#10052;</div>
-        <div class="news-card-body">
-          <h3 class="news-card-title"><a href="/news/scheibe-eis/">Nicht kratzen. So befreien Sie Ihre Scheibe von Eis.</a></h3>
-          <p class="news-card-excerpt">Nachtfrost kann f&uuml;r Laternenparker zum Problem werden. Ist die Scheibe vereist, greifen viele sofort zum Eiskratzer.&hellip;</p>
-          <a href="/news/scheibe-eis/" class="news-card-link">Weiterlesen &rarr;</a>
-        </div>
-      </article>
-
-      <article class="news-card reveal">
-        <div class="news-card-placeholder">&#9745;</div>
-        <div class="news-card-body">
-          <h3 class="news-card-title"><a href="/news/hu-erinnerungsservice/">Unser Erinnerungsservice. Nie wieder den HU-Termin vergessen.</a></h3>
-          <p class="news-card-excerpt">Es ist wichtig, Ihren HU-Termin nicht zu verpassen, da bei &Uuml;berschreitung der Fristen Bu&szlig;gelder und Punkte in Flensburg&hellip;</p>
-          <a href="/news/hu-erinnerungsservice/" class="news-card-link">Weiterlesen &rarr;</a>
-        </div>
-      </article>
-
-      <article class="news-card reveal">
-        <div class="news-card-placeholder">&#9211;</div>
-        <div class="news-card-body">
-          <h3 class="news-card-title"><a href="/news/batterie-winterschlaf/">Batterie im Winterschlaf.</a></h3>
-          <p class="news-card-excerpt">Autos, die im Winter stillstehen, ben&ouml;tigen eine besondere Behandlung. Viele elektrische Verbraucher ziehen dauerhaft Strom&hellip;</p>
-          <a href="/news/batterie-winterschlaf/" class="news-card-link">Weiterlesen &rarr;</a>
-        </div>
-      </article>
-
-      <article class="news-card reveal">
-        <div class="news-card-placeholder">&#10070;</div>
-        <div class="news-card-body">
-          <h3 class="news-card-title"><a href="/news/lackschaeden-winter/">Vor dem Winter: Lacksch&auml;den ausbessern.</a></h3>
-          <p class="news-card-excerpt">Ein Steinschlag oder ein Kratzer vom Ausparken hinterl&auml;sst seine Spuren auf dem Auto. Doch vor dem Winter sollten Kratzer&hellip;</p>
-          <a href="/news/lackschaeden-winter/" class="news-card-link">Weiterlesen &rarr;</a>
-        </div>
-      </article>
-
-      <article class="news-card reveal">
-        <div class="news-card-placeholder">&#9733;</div>
-        <div class="news-card-body">
-          <h3 class="news-card-title"><a href="/news/alpine-symbol/">Pflicht zum Alpine-Symbol. Entsprechen Ihre Reifen der Norm?</a></h3>
-          <p class="news-card-excerpt">Seit 2024 m&uuml;ssen Winterreifen das Alpine-Symbol (Schneeflocke) tragen. M+S-Reifen ohne dieses Zeichen sind nicht mehr zul&auml;ssig.&hellip;</p>
-          <a href="/news/alpine-symbol/" class="news-card-link">Weiterlesen &rarr;</a>
-        </div>
-      </article>
-
-      <article class="news-card reveal">
-        <div class="news-card-placeholder">&#9782;</div>
-        <div class="news-card-body">
-          <h3 class="news-card-title"><a href="/news/kindersitze/">Kindersitze. F&uuml;r wen gilt was?</a></h3>
-          <p class="news-card-excerpt">Die Regeln rund um Kindersitze sind vielf&auml;ltig. Gr&ouml;&szlig;e, Gewicht und Alter des Kindes bestimmen, welcher Sitz der richtige ist.&hellip;</p>
-          <a href="/news/kindersitze/" class="news-card-link">Weiterlesen &rarr;</a>
-        </div>
-      </article>
-
+      {%- endif %}
+      {%- endfor %}
     </div>
   </div>
 </section>
@@ -186,31 +84,37 @@ description: "R+P Lackierung GmbH — Ihr Lackierer- & Kfz-Meister in Boxberg: A
 
     <div class="services-grid">
       <div class="service-card reveal">
+        <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="var(--color-accent)"><path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"/><circle cx="12" cy="10" r="3"/></svg></div>
         <h3>Fahrzeugaufbereitung</h3>
         <p>Professionelle Innen- und Au&szlig;enreinigung f&uuml;r Ihr Fahrzeug.</p>
         <a href="/werkstatt/fahrzeugaufbereitung/">Mehr erfahren &rarr;</a>
       </div>
       <div class="service-card reveal">
+        <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="var(--color-accent)"><path d="M22 2L2 22l1.41 1.41L22 4.41V2zM4 4v7.17l2 2V6h5.17l2-2H4zm16 16v-7.17l-2-2V18h-5.17l-2 2H20zM12 8c-2.21 0-4 1.79-4 4 0 .74.2 1.44.56 2.03l1.46-1.46A1.99 1.99 0 0112 10c.35 0 .68.09.97.26l1.46-1.46A3.99 3.99 0 0012 8z"/></svg></div>
         <h3>Karosseriearbeiten</h3>
         <p>Vom kleinen Dellen-Repair bis zur kompletten Karosserie-Instandsetzung.</p>
         <a href="/werkstatt/karosseriearbeiten/">Mehr erfahren &rarr;</a>
       </div>
       <div class="service-card reveal">
+        <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="var(--color-accent)"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg></div>
         <h3>Unfallservice</h3>
         <p>Komplette Unfallabwicklung &mdash; von der Schadensmeldung bis zur Reparatur.</p>
         <a href="/werkstatt/unfallservice/">Mehr erfahren &rarr;</a>
       </div>
       <div class="service-card reveal">
+        <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="var(--color-accent)"><path d="M18 4V3c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V6h1v4H9v11c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-9h8V4h-3z"/></svg></div>
         <h3>Komplettlackierung</h3>
         <p>Ihr Fahrzeug in neuem Glanz &mdash; Komplettlackierung in Wunschfarbe.</p>
         <a href="/lackieren/komplettlackierung/">Mehr erfahren &rarr;</a>
       </div>
       <div class="service-card reveal">
+        <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="var(--color-accent)"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM12 17c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm6-6H6l1.5-4.5h9L18 11z"/></svg></div>
         <h3>Oldtimer-Restauration</h3>
         <p>Liebevolle Restauration und Lackierung f&uuml;r Ihr Schmuckst&uuml;ck.</p>
         <a href="/oldtimer/restauration/">Mehr erfahren &rarr;</a>
       </div>
       <div class="service-card reveal">
+        <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="var(--color-accent)"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/><circle cx="12" cy="12" r="5"/><path d="M12 7v5l3.5 3.5"/></svg></div>
         <h3>Reifenservice</h3>
         <p>Reifenwechsel, Einlagerung und Beratung &mdash; alles aus einer Hand.</p>
         <a href="/werkstatt/reifenservice/">Mehr erfahren &rarr;</a>
@@ -224,23 +128,19 @@ description: "R+P Lackierung GmbH — Ihr Lackierer- & Kfz-Meister in Boxberg: A
   <div class="container">
     <div class="hours-grid">
       <div class="hours-box reveal">
-        <h2>&Ouml;ffnungszeiten &amp; Termine</h2>
+        <h2>&Ouml;ffnungszeiten</h2>
         <table class="hours-table">
-          <tr><td>Montag</td><td>07:30 – 18:00 Uhr</td></tr>
-          <tr><td>Dienstag</td><td>07:30 – 18:00 Uhr</td></tr>
-          <tr><td>Mittwoch</td><td>07:30 – 18:00 Uhr</td></tr>
-          <tr><td>Donnerstag</td><td>07:30 – 18:00 Uhr</td></tr>
-          <tr><td>Freitag</td><td>07:30 – 18:00 Uhr</td></tr>
-          <tr><td>Samstag</td><td>08:30 – 12:00 Uhr</td></tr>
+          <tr><td>Montag &ndash; Freitag</td><td>07:30 &ndash; 18:00 Uhr</td></tr>
+          <tr><td>Samstag</td><td>08:30 &ndash; 12:00 Uhr</td></tr>
           <tr><td>Sonntag</td><td class="hours-closed">geschlossen</td></tr>
         </table>
       </div>
       <div class="cta-box reveal">
-        <h2>Jetzt Termin sichern</h2>
-        <p>Ob Lackierung, Inspektion oder Unfallreparatur &mdash; wir sind f&uuml;r Sie da.</p>
+        <h2>Termin?</h2>
+        <p>Anrufen reicht.</p>
         <a href="tel:07930990111" class="btn btn-phone">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.55.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.25 1.02l-2.2 2.22z"/></svg>
-          07930 - 990111
+          07930 / 990111
         </a>
       </div>
     </div>
@@ -254,15 +154,4 @@ function showTab(id) {
   document.getElementById('panel-' + id).hidden = false;
   document.getElementById('tab-' + id).classList.add('active');
 }
-
-/* Scroll Reveal */
-var revealObserver = new IntersectionObserver(function(entries) {
-  entries.forEach(function(entry) {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-document.querySelectorAll('.reveal').forEach(function(el) { revealObserver.observe(el); });
 </script>

@@ -10,9 +10,10 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_DE">
   <meta property="og:site_name" content="R+P Lackierung GmbH">
-  <meta property="og:image" content="/images/og-image.jpg">
+  <meta property="og:image" content="https://rp-lackierung.pages.dev/images/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://rp-lackierung.pages.dev{{ page.url }}">
   <meta name="theme-color" content="#12141a">
   <link rel="canonical" href="https://rp-lackierung.pages.dev{{ page.url }}">
   <link rel="icon" href="/favicon.ico" sizes="48x48">
@@ -23,24 +24,26 @@
 </head>
 <body class="{{ bodyClass or '' }}">
 
+  <a href="#main-content" class="sr-only" style="position:absolute;top:-999px;left:-999px;z-index:9999;padding:1rem;background:var(--color-accent);color:var(--color-bg);">Zum Inhalt springen</a>
+
   <header class="site-header">
     <div class="header-top">
       <div class="container header-top-inner">
+        <a href="mailto:info@rp-lackierung.de" class="header-email">info@rp-lackierung.de</a>
         <a href="tel:07930990111" class="header-phone">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.55.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.25 1.02l-2.2 2.22z"/></svg>
-          07930 - 990111
+          07930 / 990111
         </a>
-        <a href="mailto:info@rp-lackierung.de" class="header-email">info@rp-lackierung.de</a>
       </div>
     </div>
 
     <div class="header-main">
       <div class="container header-main-inner">
         <a href="/" class="logo">
-          <img src="/images/logo.png" alt="R+P Lackierung GmbH" width="300" height="100">
+          <img src="/images/logo.png" alt="R+P Lackierung GmbH" width="1536" height="512">
         </a>
 
-        <button class="burger" aria-label="Menü öffnen" onclick="document.body.classList.toggle('menu-open')">
+        <button class="burger" aria-label="Menü" aria-expanded="false" aria-controls="main-nav">
           <span></span><span></span><span></span>
         </button>
 
@@ -48,7 +51,7 @@
           <a href="/" {% if page.url == '/' %}aria-current="page"{% endif %}>Willkommen</a>
           <a href="/wir-ueber-uns/" {% if page.url == '/wir-ueber-uns/' %}aria-current="page"{% endif %}>Wir über uns</a>
           <div class="nav-dropdown {% if page.url and '/werkstatt/' in page.url %}is-active{% endif %}">
-            <button class="nav-dropdown-toggle">Werkstatt Leistungen <svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
+            <button class="nav-dropdown-toggle">Werkstatt Leistungen</button>
             <div class="nav-dropdown-menu">
               <a href="/werkstatt/fahrzeugaufbereitung/">Fahrzeugaufbereitung</a>
               <a href="/werkstatt/fahrzeugdiagnose/">Fahrzeugdiagnose</a>
@@ -61,7 +64,7 @@
             </div>
           </div>
           <div class="nav-dropdown {% if page.url and '/lackieren/' in page.url %}is-active{% endif %}">
-            <button class="nav-dropdown-toggle">Lackieren <svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
+            <button class="nav-dropdown-toggle">Lackieren</button>
             <div class="nav-dropdown-menu">
               <a href="/lackieren/teillackierung/">Teillackierung</a>
               <a href="/lackieren/komplettlackierung/">Komplettlackierung</a>
@@ -71,7 +74,7 @@
             </div>
           </div>
           <div class="nav-dropdown {% if page.url and '/oldtimer/' in page.url %}is-active{% endif %}">
-            <button class="nav-dropdown-toggle">Oldtimer <svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
+            <button class="nav-dropdown-toggle">Oldtimer</button>
             <div class="nav-dropdown-menu">
               <a href="/oldtimer/restauration/">Restauration</a>
               <a href="/oldtimer/lackierung/">Lackierung</a>
@@ -83,7 +86,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     {{ content | safe }}
   </main>
 
@@ -99,19 +102,34 @@
   </footer>
 
   <a href="tel:07930990111" class="fab-phone" aria-label="Anrufen">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.55.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.25 1.02l-2.2 2.22z"/></svg>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.55.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.25 1.02l-2.2 2.22z"/></svg>
   </a>
 
   <script>
-  /* Dropdown toggles on mobile */
+  /* Burger toggle */
+  var burger = document.querySelector('.burger');
+  burger.addEventListener('click', function() {
+    var isOpen = document.body.classList.toggle('menu-open');
+    this.setAttribute('aria-expanded', isOpen);
+    this.setAttribute('aria-label', isOpen ? 'Menü schließen' : 'Menü öffnen');
+  });
+
+  /* Dropdown toggles */
   document.querySelectorAll('.nav-dropdown-toggle').forEach(function(btn) {
+    btn.setAttribute('aria-expanded', 'false');
     btn.addEventListener('click', function(e) {
       if (window.innerWidth <= 900) {
         e.preventDefault();
         var parent = this.parentElement;
         var wasOpen = parent.classList.contains('is-open');
-        document.querySelectorAll('.nav-dropdown.is-open').forEach(function(d) { d.classList.remove('is-open'); });
-        if (!wasOpen) parent.classList.add('is-open');
+        document.querySelectorAll('.nav-dropdown.is-open').forEach(function(d) {
+          d.classList.remove('is-open');
+          d.querySelector('.nav-dropdown-toggle').setAttribute('aria-expanded', 'false');
+        });
+        if (!wasOpen) {
+          parent.classList.add('is-open');
+          this.setAttribute('aria-expanded', 'true');
+        }
       }
     });
   });
@@ -120,10 +138,11 @@
   document.querySelectorAll('.main-nav > a, .nav-dropdown-menu a').forEach(function(link) {
     link.addEventListener('click', function() {
       document.body.classList.remove('menu-open');
+      burger.setAttribute('aria-expanded', 'false');
     });
   });
 
-  /* Scroll Reveal (global — works on all pages) */
+  /* Scroll Reveal (global) */
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     var revealObserver = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {

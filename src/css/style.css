@@ -1,7 +1,7 @@
 /* ============================================
    R+P Lackierung GmbH — Makeover
-   Klarsite Stack · Strand-Kontext · Morgengrauen
-   Kontrast 55% · Radius 8–14px · Outlined Buttons
+   Klarsite Stack · F&F Vibe · Asphalt + Flamme
+   Kontrast 65% · Radius 6–10px · Speed-Energy
    ============================================ */
 
 /* === Reset === */
@@ -14,21 +14,23 @@
 
 /* === Custom Properties === */
 :root {
-  /* Palette — Morgengrauen / Strand
-     Stahl + Wärme. Werkstatt nach Feierabend. */
-  --color-bg:        #12141a;
-  --color-surface:   #1c1f28;
-  --color-card:      #232733;
-  --color-border:    #3a3f52;
-  --color-accent:    #c0945c;
-  --color-teal:      #8a9cc0;
-  --color-warm:      #d45a4a;
-  --color-light:     #e8e4ec;
-  --color-muted:     #8b8a96;
-  --color-dim:       #5c5b68;
+  /* Palette — F&F × Logo-DNA
+     Tiefschwarz + Violett aus Logo + Orange Flamme + Speed. */
+  --color-bg:        #0a0a10;
+  --color-surface:   #14121e;
+  --color-card:      #1c1828;
+  --color-border:    #2e2e42;
+  --color-accent:    #e88a2a;
+  --color-violet:    #6a4a90;
+  --color-teal:      #9080c0;
+  --color-warm:      #e03828;
+  --color-light:     #f0ecf0;
+  --color-muted:     #9490a0;
+  --color-dim:       #747088;
 
-  /* Original-Rot als Referenz (für Logo-Kontext) */
-  --red-original:    #d93128;
+  /* Glow */
+  --color-glow:      rgba(232, 138, 42, 0.15);
+  --color-glow-violet: rgba(106, 74, 144, 0.12);
 
   /* Fluid Type — Klarsite Foundation */
   --fs-body: clamp(1.0625rem, 0.97rem + 0.46vw, 1.1875rem);
@@ -49,8 +51,8 @@
 
   /* Layout */
   --max-w: 1200px;
-  --radius: 10px;
-  --transition: 0.3s ease;
+  --radius: 6px;
+  --transition: 0.25s ease;
 }
 
 /* === Base === */
@@ -73,6 +75,11 @@ body {
 ::selection {
   background: var(--color-accent);
   color: var(--color-bg);
+}
+
+/* Focus-visible: kein Accent auf hellem BG */
+.header-top :focus-visible {
+  outline-color: var(--color-light);
 }
 
 img {
@@ -127,37 +134,56 @@ a:active { color: var(--color-teal); }
   border-bottom: 1px solid var(--color-border);
 }
 
-/* Header Top Bar */
+/* Header Top Bar — Violett-zu-Orange wie im Logo */
 .header-top {
-  background: var(--color-accent);
+  background: linear-gradient(90deg, var(--color-violet), var(--color-accent));
   color: var(--color-bg);
   font-size: 0.85rem;
   font-weight: 500;
 }
 
+.header-top .container {
+  max-width: none;
+}
+
 .header-top-inner {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   gap: 1.5rem;
-  padding-block: 0.35rem;
+  padding-block: 0;
+  min-height: 36px;
+  max-width: none;
+  padding-inline: var(--space-inline);
 }
 
 .header-phone,
 .header-email {
   color: var(--color-bg);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.4rem;
   font-size: 0.85rem;
-  min-height: 44px;
+  line-height: 1;
+  padding-block: 0.5rem;
 }
 
 @media (hover: hover) {
   .header-phone:hover,
   .header-email:hover {
-    opacity: 0.8;
+    color: var(--color-light);
   }
+}
+
+.header-phone:active,
+.header-email:active {
+  color: var(--color-light);
+}
+
+/* Selection im Header: dunkler BG statt Accent */
+.header-top ::selection {
+  background: rgba(0,0,0,0.3);
+  color: var(--color-light);
 }
 
 /* Header Main */
@@ -175,8 +201,13 @@ a:active { color: var(--color-teal); }
 }
 
 .logo img {
-  height: 48px;
+  height: 70px;
   width: auto;
+  filter: drop-shadow(0 0 12px var(--color-glow));
+}
+
+@media (max-width: 900px) {
+  .logo img { height: 50px; }
 }
 
 /* === Navigation === */
@@ -220,7 +251,10 @@ a:active { color: var(--color-teal); }
 .main-nav > a[aria-current="page"],
 .nav-dropdown.is-active .nav-dropdown-toggle {
   color: var(--color-accent);
-  border-bottom: 2px solid var(--color-accent);
+  background-image: linear-gradient(90deg, var(--color-violet), var(--color-accent));
+  background-size: 100% 2px;
+  background-position: 0 calc(100% - 6px);
+  background-repeat: no-repeat;
 }
 
 .nav-dropdown-toggle svg {
@@ -378,7 +412,7 @@ a:active { color: var(--color-teal); }
   .nav-dropdown-menu a {
     padding: 0.75rem 0 0.75rem 1.5rem;
     font-size: 1rem;
-    border-bottom: 1px solid rgba(58, 63, 82, 0.4);
+    border-bottom: 1px solid rgba(58, 63, 82, 0.5);
   }
 }
 
@@ -386,22 +420,71 @@ a:active { color: var(--color-teal); }
    HERO
    ============================================ */
 
-.hero {
-  padding-block: var(--space-section);
+/* Hero Banner Image */
+.hero-banner {
   position: relative;
+  width: 100%;
+  max-height: 480px;
   overflow: hidden;
 }
 
-/* Subtle gradient background */
+.hero-banner img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
+
+.hero-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 14, 0.15) 0%,
+    rgba(10, 10, 14, 0.3) 40%,
+    rgba(10, 10, 14, 0.7) 70%,
+    var(--color-bg) 95%,
+    var(--color-bg) 100%
+  );
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .hero-banner img {
+    height: 280px;
+  }
+}
+
+/* Hero Content */
+.hero {
+  padding-block: var(--space-section);
+  padding-top: 1rem;
+  margin-top: -4rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* F&F Speed gradient — diagonal heat lines */
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 20% 0%, rgba(192, 148, 92, 0.06) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 50% at 80% 100%, rgba(138, 156, 192, 0.04) 0%, transparent 60%);
+    linear-gradient(135deg, rgba(232, 135, 42, 0.07) 0%, transparent 40%),
+    linear-gradient(315deg, rgba(232, 58, 42, 0.04) 0%, transparent 35%),
+    repeating-linear-gradient(
+      115deg,
+      transparent,
+      transparent 60px,
+      rgba(232, 135, 42, 0.015) 60px,
+      rgba(232, 135, 42, 0.015) 61px
+    );
   pointer-events: none;
 }
+
+/* Removed speed-line — the fade-out IS the effect */
 
 .hero-inner {
   display: grid;
@@ -411,34 +494,35 @@ a:active { color: var(--color-teal); }
   position: relative;
 }
 
-.hero-content h1 {
+.hero-tagline {
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
   color: var(--color-accent);
-  margin-bottom: 1.2rem;
-  font-weight: 800;
-}
-
-.hero-content p {
-  color: var(--color-muted);
-  margin-bottom: 0.4rem;
-}
-
-.hero-content strong {
-  color: var(--color-light);
-}
-
-.hero-contact {
-  margin-top: 1.5rem;
-  display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.hero-contact a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
   font-weight: 600;
-  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+}
+
+.hero-content h1 {
+  color: var(--color-light);
+  margin-bottom: 1rem;
+  font-weight: 900;
+  font-size: var(--fs-hero);
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 40px var(--color-glow);
+}
+
+.hero-sub {
+  color: var(--color-muted);
+  font-size: 1.05rem;
+  max-width: 480px;
+  margin-bottom: 2rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 /* Info Tabs */
@@ -475,7 +559,7 @@ a:active { color: var(--color-teal); }
 }
 
 .info-panel {
-  background: var(--color-card);
+  background: var(--color-surface);
   padding: var(--space-card);
   border: 1px solid var(--color-border);
   border-top: 2px solid var(--color-accent);
@@ -517,34 +601,13 @@ a:active { color: var(--color-teal); }
   font-weight: 600;
 }
 
-/* Hero CTA Side */
-.hero-cta-box {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  padding: var(--space-card);
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+/* Hero Info Side */
+.hero-info {
+  align-self: end;
 }
 
-.hero-cta-box h2 {
-  color: var(--color-light);
-  font-size: var(--fs-h3);
-  margin-bottom: 0;
-}
-
-.hero-cta-box p {
-  color: var(--color-muted);
-  margin-bottom: 0;
-}
-
-.hero-cta-box .hero-tagline {
-  font-size: 0.85rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-  font-weight: 600;
+.panel-link {
+  margin-top: 1rem;
 }
 
 @media (max-width: 900px) {
@@ -634,9 +697,9 @@ a:active { color: var(--color-teal); }
   position: absolute;
   bottom: -0.5rem;
   left: 0;
-  width: 60px;
+  width: 120px;
   height: 3px;
-  background: var(--color-accent);
+  background: linear-gradient(90deg, var(--color-violet), var(--color-accent));
   border-radius: 2px;
 }
 
@@ -761,7 +824,8 @@ a:active { color: var(--color-teal); }
   padding: var(--space-card);
   border-radius: var(--radius);
   border: 1px solid var(--color-border);
-  border-left: 3px solid var(--color-accent);
+  border-left: 3px solid var(--color-violet);
+  border-image: linear-gradient(to bottom, var(--color-violet), var(--color-accent)) 1;
   transition: border-color var(--transition), box-shadow var(--transition);
 }
 
@@ -770,6 +834,11 @@ a:active { color: var(--color-teal); }
     border-color: var(--color-accent);
     box-shadow: 0 4px 16px rgba(0,0,0,0.2);
   }
+}
+
+.service-icon {
+  margin-bottom: 1rem;
+  opacity: 0.9;
 }
 
 .service-card h3 {
@@ -857,6 +926,8 @@ a:active { color: var(--color-teal); }
 
 .page-content h1 {
   color: var(--color-accent);
+  font-size: clamp(1.5rem, 1rem + 2.5vw, 2.2rem);
+  font-weight: 600;
   margin-bottom: 1.5rem;
   padding-bottom: 1rem;
   position: relative;
@@ -867,20 +938,24 @@ a:active { color: var(--color-teal); }
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 60px;
-  height: 3px;
-  background: var(--color-accent);
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-violet), var(--color-accent));
   border-radius: 2px;
 }
 
 .page-content h2 {
   color: var(--color-accent);
+  font-size: clamp(1.15rem, 0.9rem + 1.25vw, 1.5rem);
+  font-weight: 600;
   margin-top: 2.5rem;
 }
 
 .page-content p,
 .page-content li {
   color: var(--color-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
 }
 
 .page-content strong {
@@ -916,15 +991,48 @@ a:active { color: var(--color-teal); }
 
 .page-content th,
 .page-content td {
-  padding: 0.6rem 1rem;
+  padding: 0.75rem 1rem;
   text-align: left;
   border-bottom: 1px solid var(--color-border);
   color: var(--color-muted);
+  font-size: 0.95rem;
 }
 
 .page-content th {
   color: var(--color-light);
   font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Page Hero Image (Wir über uns etc.) */
+.page-hero-img {
+  width: 100%;
+  max-height: 450px;
+  object-fit: cover;
+  object-position: center 15%;
+  border-radius: var(--radius);
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 600px) {
+  .page-hero-img {
+    max-height: 280px;
+    object-position: center 10%;
+  }
+}
+
+/* Back Link + News Date */
+.back-link {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-bottom: 2rem;
+}
+
+.news-date {
+  font-size: 0.85rem;
+  color: var(--color-dim);
+  margin-bottom: 2rem;
 }
 
 /* ============================================
@@ -933,7 +1041,8 @@ a:active { color: var(--color-teal); }
 
 .site-footer {
   background: var(--color-surface);
-  border-top: 1px solid var(--color-border);
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--color-violet), var(--color-accent), var(--color-violet)) 1;
   padding-block: 2.5rem;
 }
 

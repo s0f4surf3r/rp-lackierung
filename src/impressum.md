@@ -10,7 +10,7 @@ permalink: /impressum/
 Robert-Bosch-Straße 6/B
 97944 Boxberg
 
-**Telefon:** 07930 - 990111
+**Telefon:** 07930 / 990111
 **E-Mail:** info@rp-lackierung.de
 
 ## Vertretungsberechtigter Geschäftsführer

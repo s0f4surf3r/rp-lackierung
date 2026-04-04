@@ -5,7 +5,7 @@ permalink: /werkstatt/karosseriearbeiten/
 description: Karosseriearbeiten bei R+P Lackierung in Boxberg – von kleinen Dellen bis zur umfangreichen Unfallinstandsetzung.
 ---
 
-<img src="/images/werkstatt-karosserie.webp" alt="Karosseriearbeiten — Schweißen an einer Fahrzeugkarosserie" class="page-hero-img" width="1024" height="1024" loading="eager">
+<img src="/images/werkstatt-karosserie.webp" alt="Karosseriearbeiten — Schweißen an einer Fahrzeugkarosserie" class="page-hero-img" data-cms-image="werkstatt-karosserie" width="1024" height="1024" loading="eager">
 
 ## Karosseriearbeiten vom Fachbetrieb
 

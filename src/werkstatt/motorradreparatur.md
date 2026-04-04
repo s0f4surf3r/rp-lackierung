@@ -5,7 +5,7 @@ permalink: /werkstatt/motorradreparatur/
 description: Motorradreparatur bei R+P Lackierung in Boxberg – Wartung, Reparatur und Unfallschäden für Ihr Motorrad.
 ---
 
-<img src="/images/werkstatt-motorrad.webp" alt="Motorradreparatur in der Werkstatt" class="page-hero-img" width="1024" height="1024" loading="eager">
+<img src="/images/werkstatt-motorrad.webp" alt="Motorradreparatur in der Werkstatt" class="page-hero-img" data-cms-image="werkstatt-motorrad" width="1024" height="1024" loading="eager">
 
 ## Motorradreparatur in Boxberg
 

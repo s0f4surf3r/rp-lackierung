@@ -5,7 +5,7 @@ permalink: /oldtimer/lackierung/
 description: Oldtimer-Lackierung bei R+P Lackierung in Boxberg – originalgetreue oder individuelle Neulackierung für Ihren Klassiker.
 ---
 
-<img src="/images/oldtimer-lackierung.webp" alt="Frisch lackierter Oldtimer-Klassiker in der Lackierkabine" width="1024" height="1024" class="page-hero-img" loading="eager">
+<img src="/images/oldtimer-lackierung.webp" alt="Frisch lackierter Oldtimer-Klassiker in der Lackierkabine" width="1024" height="1024" class="page-hero-img" data-cms-image="oldtimer-lackierung" loading="eager">
 
 ## Oldtimer-Lackierung
 

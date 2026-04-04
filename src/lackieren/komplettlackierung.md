@@ -5,7 +5,7 @@ permalink: /lackieren/komplettlackierung/
 description: Komplettlackierung bei R+P Lackierung in Boxberg – Ihr Fahrzeug in Wunschfarbe, professionell und dauerhaft.
 ---
 
-<img src="/images/lackieren-komplett.webp" alt="Fahrzeug abgeklebt und vorbereitet für Komplettlackierung" class="page-hero-img" width="1024" height="1024" loading="eager">
+<img src="/images/lackieren-komplett.webp" alt="Fahrzeug abgeklebt und vorbereitet für Komplettlackierung" class="page-hero-img" data-cms-image="lackieren-komplett" width="1024" height="1024" loading="eager">
 
 ## Komplettlackierung – Ihr Fahrzeug in neuem Glanz
 

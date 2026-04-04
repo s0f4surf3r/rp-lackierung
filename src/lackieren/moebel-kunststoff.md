@@ -5,7 +5,7 @@ permalink: /lackieren/moebel-kunststoff/
 description: Möbel- und Kunststofflackierung bei R+P Lackierung in Boxberg – professionelle Lackierung abseits vom Fahrzeug.
 ---
 
-<img src="/images/lackieren-moebel.webp" alt="Möbelstück wird professionell lackiert" class="page-hero-img" width="1024" height="1024" loading="eager">
+<img src="/images/lackieren-moebel.webp" alt="Möbelstück wird professionell lackiert" class="page-hero-img" data-cms-image="lackieren-moebel" width="1024" height="1024" loading="eager">
 
 ## Möbel- und Kunststofflackierung
 

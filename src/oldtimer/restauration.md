@@ -5,7 +5,7 @@ permalink: /oldtimer/restauration/
 description: Oldtimer-Restauration bei R+P Lackierung in Boxberg – Karosserie und Lack für Ihr klassisches Fahrzeug.
 ---
 
-<img src="/images/oldtimer-restauration.webp" alt="Oldtimer-Restauration in der Werkstatt — Mercedes Pagode wird aufgebaut" width="1024" height="1024" class="page-hero-img" loading="eager">
+<img src="/images/oldtimer-restauration.webp" alt="Oldtimer-Restauration in der Werkstatt — Mercedes Pagode wird aufgebaut" width="1024" height="1024" class="page-hero-img" data-cms-image="oldtimer-restauration" loading="eager">
 
 ## Oldtimer-Restauration
 

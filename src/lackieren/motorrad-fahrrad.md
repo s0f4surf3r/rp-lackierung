@@ -5,7 +5,7 @@ permalink: /lackieren/motorrad-fahrrad/
 description: Motorrad- und Fahrradlackierung bei R+P Lackierung in Boxberg – individuelle Lackierung für Zweiräder.
 ---
 
-<img src="/images/lackieren-motorrad.webp" alt="Motorradtank wird in der Lackierkabine lackiert" class="page-hero-img" width="1024" height="1024" loading="eager">
+<img src="/images/lackieren-motorrad.webp" alt="Motorradtank wird in der Lackierkabine lackiert" class="page-hero-img" data-cms-image="lackieren-motorrad" width="1024" height="1024" loading="eager">
 
 ## Motorrad- und Fahrradlackierung
 

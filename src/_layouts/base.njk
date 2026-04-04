@@ -206,74 +206,7 @@
   })();
   </script>
 
-  {# stylyCMS — Live-Edit-Modus via ?edit #}
-  <script>
-  (function(){
-    if (!location.search.includes('edit')) return;
-
-    document.body.style.cursor = 'default';
-
-    // Toolbar
-    var bar = document.createElement('div');
-    bar.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:99999;background:linear-gradient(90deg,#6a4a90,#e88a2a);padding:8px 16px;display:flex;align-items:center;justify-content:space-between;font:600 14px -apple-system,sans-serif;color:#fff;';
-    bar.innerHTML = '<span>✎ stylyCMS — Bilder klicken zum Fokus setzen, Texte direkt bearbeiten</span><button id="styly-close" style="background:none;border:1.5px solid rgba(255,255,255,0.5);color:#fff;padding:4px 12px;border-radius:4px;cursor:pointer;font:inherit;">Fertig</button>';
-    document.body.appendChild(bar);
-    document.body.style.paddingTop = '40px';
-
-    bar.querySelector('#styly-close').onclick = function() {
-      location.href = location.pathname;
-    };
-
-    // Texte editierbar
-    document.querySelectorAll('h1,h2,h3,p,li,td,span').forEach(function(el) {
-      if (el.closest('.site-header') || el.closest('.site-footer') || el.closest('script') || el.closest('nav')) return;
-      el.contentEditable = true;
-      el.style.outline = '1px dashed rgba(232,138,42,0.2)';
-      el.style.cursor = 'text';
-    });
-
-    // Bilder: Fokus-Editor
-    document.querySelectorAll('img').forEach(function(img) {
-      if (img.closest('.site-header') || img.closest('nav')) return;
-      var wrap = img.parentElement;
-
-      // Overlay mit Kreuz
-      var overlay = document.createElement('div');
-      overlay.style.cssText = 'position:absolute;top:0;left:0;right:0;bottom:0;cursor:crosshair;z-index:10;';
-      overlay.title = 'Klicken um Fokuspunkt zu setzen';
-
-      // Dot
-      var dot = document.createElement('div');
-      dot.style.cssText = 'position:absolute;width:20px;height:20px;border-radius:50%;border:2px solid #e88a2a;background:rgba(232,138,42,0.3);transform:translate(-50%,-50%);pointer-events:none;display:none;';
-      overlay.appendChild(dot);
-
-      // Wrapper positionieren
-      if (getComputedStyle(wrap).position === 'static') wrap.style.position = 'relative';
-      wrap.appendChild(overlay);
-
-      // Label
-      var label = document.createElement('div');
-      label.style.cssText = 'position:absolute;bottom:8px;right:8px;background:rgba(10,10,16,0.85);color:#e88a2a;padding:4px 10px;border-radius:4px;font:600 12px -apple-system,sans-serif;z-index:11;pointer-events:none;';
-      label.textContent = img.style.objectPosition || 'center center';
-      wrap.appendChild(label);
-
-      overlay.addEventListener('click', function(e) {
-        var rect = overlay.getBoundingClientRect();
-        var xPct = Math.round((e.clientX - rect.left) / rect.width * 100);
-        var yPct = Math.round((e.clientY - rect.top) / rect.height * 100);
-        var pos = xPct + '% ' + yPct + '%';
-        img.style.objectPosition = pos;
-        dot.style.left = xPct + '%';
-        dot.style.top = yPct + '%';
-        dot.style.display = 'block';
-        label.textContent = pos;
-
-        // CSS-Ausgabe in Konsole
-        var src = img.getAttribute('src');
-        console.log('/* stylyCMS */ img[src="' + src + '"] { object-position: ' + pos + '; }');
-      });
-    });
-  })();
-  </script>
+  {# stylyCMS — Bild-Fokus + Text-Edit (aktiviert sich nach CMS-Login) #}
+  <script src="/js/image-editor.js"></script>
 </body>
 </html>

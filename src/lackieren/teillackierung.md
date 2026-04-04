@@ -5,7 +5,7 @@ permalink: /lackieren/teillackierung/
 description: Teillackierung bei R+P Lackierung in Boxberg – einzelne Bauteile professionell lackieren lassen.
 ---
 
-<img src="/images/lackieren-teil.webp" alt="Teillackierung eines Kotflügels in der Lackierkabine" class="page-hero-img" width="1024" height="1024" loading="eager">
+<img src="/images/lackieren-teil.webp" alt="Teillackierung eines Kotflügels in der Lackierkabine" class="page-hero-img" data-cms-image="lackieren-teil" width="1024" height="1024" loading="eager">
 
 ## Teillackierung – einzelne Bauteile neu lackieren
 

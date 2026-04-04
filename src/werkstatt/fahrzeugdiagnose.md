@@ -5,7 +5,7 @@ permalink: /werkstatt/fahrzeugdiagnose/
 description: Fahrzeugdiagnose mit modernen Diagnosegeräten bei R+P Lackierung in Boxberg – schnelle und zuverlässige Fehlersuche.
 ---
 
-<img src="/images/werkstatt-diagnose.webp" alt="" class="page-hero-img" width="1024" height="1024" loading="eager">
+<img src="/images/werkstatt-diagnose.webp" alt="Fahrzeugdiagnose mit modernem Diagnosegerät" class="page-hero-img" width="1024" height="1024" loading="eager">
 
 ## Moderne Fahrzeugdiagnose
 

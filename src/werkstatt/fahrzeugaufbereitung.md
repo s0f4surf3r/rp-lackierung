@@ -5,7 +5,7 @@ permalink: /werkstatt/fahrzeugaufbereitung/
 description: Professionelle Fahrzeugaufbereitung bei R+P Lackierung in Boxberg – Innen- und Außenreinigung, Politur und Versiegelung.
 ---
 
-<img src="/images/werkstatt-aufbereitung.webp" alt="" class="page-hero-img" width="1024" height="1024" loading="eager">
+<img src="/images/werkstatt-aufbereitung.webp" alt="Professionelle Fahrzeugaufbereitung — Politur mit Poliermaschine" class="page-hero-img" width="1024" height="1024" loading="eager">
 
 ## Professionelle Fahrzeugaufbereitung
 

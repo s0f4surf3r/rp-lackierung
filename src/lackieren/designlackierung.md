@@ -5,7 +5,7 @@ permalink: /lackieren/designlackierung/
 description: Designlackierung bei R+P Lackierung in Boxberg – individuelle Lackierungen, Effekte und Sonderwünsche.
 ---
 
-<img src="/images/lackieren-design.webp" alt="" class="page-hero-img" width="1024" height="1024" loading="eager">
+<img src="/images/lackieren-design.webp" alt="Designlackierung — Custom-Paintjob mit Metallic-Effekt" class="page-hero-img" width="1024" height="1024" loading="eager">
 
 ## Designlackierung – Ihr Fahrzeug, Ihr Stil
 

@@ -49,3 +49,11 @@ Der Provider der Seiten erhebt und speichert automatisch Informationen in so gen
 ### Kontaktformular / E-Mail
 
 Wenn Sie uns per E-Mail oder Telefon kontaktieren, wird Ihre Anfrage inklusive aller daraus hervorgehenden personenbezogenen Daten zum Zwecke der Bearbeitung Ihres Anliegens bei uns gespeichert und verarbeitet.
+
+## 5. Chat-Widget
+
+Diese Website bietet einen KI-gestützten Chat-Assistenten an. Wenn Sie den Chat nutzen, werden Ihre Nachrichten an einen Server der Scaleway SAS (Paris, Frankreich) gesendet und dort mit Hilfe eines KI-Modells von Anthropic, PBC (San Francisco, USA) verarbeitet. Die Verarbeitung erfolgt ausschließlich zur Beantwortung Ihrer Anfrage. Nachrichten werden nicht gespeichert. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung durch Nutzung).
+
+## 6. Lokale Speicherung
+
+Diese Website speichert eine Einstellung (Theme-Präferenz) im localStorage Ihres Browsers. Es werden keine Cookies gesetzt. Die Daten verbleiben auf Ihrem Gerät und werden nicht an Server übertragen.

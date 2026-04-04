@@ -5,7 +5,7 @@ permalink: /werkstatt/inspektion/
 description: Inspektionen nach Herstellervorgaben bei R+P Lackierung in Boxberg – damit Ihr Fahrzeug zuverlässig bleibt.
 ---
 
-<img src="/images/werkstatt-inspektion.webp" alt="" class="page-hero-img" width="1024" height="1024" loading="eager">
+<img src="/images/werkstatt-inspektion.webp" alt="Kfz-Inspektion — Mechaniker prüft Fahrwerk auf der Hebebühne" class="page-hero-img" width="1024" height="1024" loading="eager">
 
 ## Inspektionen nach Herstellervorgaben
 

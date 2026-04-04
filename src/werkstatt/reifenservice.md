@@ -5,7 +5,7 @@ permalink: /werkstatt/reifenservice/
 description: Reifenservice bei R+P Lackierung in Boxberg – Reifenwechsel, Einlagerung, Auswuchten und Beratung.
 ---
 
-<img src="/images/werkstatt-reifen.webp" alt="" class="page-hero-img" width="1024" height="1024" loading="eager">
+<img src="/images/werkstatt-reifen.webp" alt="Reifenservice — Reifen wird auf Wuchtmaschine ausgewuchtet" class="page-hero-img" width="1024" height="1024" loading="eager">
 
 ## Reifenservice – Wechsel, Lagerung und Beratung
 

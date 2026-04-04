@@ -5,7 +5,7 @@ permalink: /werkstatt/unfallservice/
 description: Kompletter Unfallservice bei R+P Lackierung in Boxberg – von der Schadensaufnahme bis zur fertigen Reparatur.
 ---
 
-<img src="/images/werkstatt-unfall.webp" alt="" class="page-hero-img" width="1024" height="1024" loading="eager">
+<img src="/images/werkstatt-unfall.webp" alt="Unfallservice — Begutachtung eines Unfallschadens" class="page-hero-img" width="1024" height="1024" loading="eager">
 
 ## Unfallservice aus einer Hand
 

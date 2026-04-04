@@ -5,7 +5,7 @@ permalink: /werkstatt/smart-spot-repair/
 description: Smart- und Spot-Repair bei R+P Lackierung in Boxberg – kleine Lackschäden schnell und kostengünstig reparieren.
 ---
 
-<img src="/images/werkstatt-spot.webp" alt="" class="page-hero-img" width="1024" height="1024" loading="eager">
+<img src="/images/werkstatt-spot.webp" alt="Smart Repair — punktuelle Lackreparatur mit Mini-Sprühpistole" class="page-hero-img" width="1024" height="1024" loading="eager">
 
 ## Smart- und Spot-Repair
 

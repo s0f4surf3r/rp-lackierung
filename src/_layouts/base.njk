@@ -31,7 +31,8 @@
     <div class="header-main">
       <div class="container header-main-inner">
         <a href="/" class="logo">
-          <img src="/images/logo.png" alt="R+P Lackierung GmbH" width="1017" height="206">
+          <img src="/images/logo-rp.png" alt="R+P" class="logo-rp" width="472" height="208">
+          <img src="/images/logo-wordmark.png" alt="Lackierung Instandsetzung" class="logo-wordmark" width="477" height="124">
         </a>
 
         <button class="burger" aria-label="Menü" aria-expanded="false" aria-controls="main-nav">
@@ -208,5 +209,84 @@
 
   {# stylyCMS — Bild-Fokus + Text-Edit (aktiviert sich nach CMS-Login) #}
   <script src="/js/image-editor.js"></script>
+
+  {# Live Parameter Editing — ?tune #}
+  <script>
+  (function(){
+    if (!location.search.includes('tune')) return;
+
+    var params = [
+      { label: 'Gradient-Balken Höhe', prop: '--tune-bar-h', target: '.header-top', css: 'height', min: 0, max: 60, val: 36, unit: 'px' },
+      { label: 'Header Padding vertikal', prop: '--tune-hdr-py', target: '.header-main-inner', css: 'paddingBlock', min: 4, max: 40, val: 22, unit: 'px' },
+      { label: 'Header Padding horizontal', prop: '--tune-hdr-px', target: '.header-main-inner', css: 'paddingInline', min: 8, max: 60, val: 20, unit: 'px' },
+      { label: 'Logo Höhe', prop: '--tune-logo-h', target: '.logo img', css: 'height', min: 24, max: 120, val: 48, unit: 'px' },
+      { label: 'Nav Font Size', prop: '--tune-nav-fs', target: '.main-nav > a, .nav-dropdown-toggle', css: 'fontSize', min: 10, max: 20, val: 14, unit: 'px' },
+      { label: 'Nav Gap', prop: '--tune-nav-gap', target: '.header-main-inner', css: 'gap', min: 4, max: 40, val: 24, unit: 'px' },
+      { label: 'Border unten', prop: '--tune-border', target: '.site-header', css: 'borderBottomWidth', min: 0, max: 4, val: 1, unit: 'px' },
+    ];
+
+    var panel = document.createElement('div');
+    panel.style.cssText = 'position:fixed;top:50%;right:0;transform:translateY(-50%);z-index:99999;background:#14121e;border:1px solid #2e2e42;border-right:none;border-radius:8px 0 0 8px;padding:16px 20px;width:280px;font:13px/1.6 -apple-system,sans-serif;color:#9490a0;box-shadow:-4px 0 20px rgba(0,0,0,0.4);max-height:90vh;overflow-y:auto;';
+
+    var title = document.createElement('div');
+    title.style.cssText = 'font-weight:700;color:#e88a2a;margin-bottom:12px;font-size:14px;';
+    title.textContent = 'Header Tuning';
+    panel.appendChild(title);
+
+    params.forEach(function(p) {
+      var row = document.createElement('div');
+      row.style.cssText = 'margin-bottom:10px;';
+
+      var lbl = document.createElement('div');
+      lbl.style.cssText = 'display:flex;justify-content:space-between;font-size:11px;color:#747088;margin-bottom:2px;';
+      var valSpan = document.createElement('span');
+      valSpan.style.color = '#e8e4ec';
+      valSpan.textContent = p.val + p.unit;
+      lbl.innerHTML = '<span>' + p.label + '</span>';
+      lbl.appendChild(valSpan);
+
+      var slider = document.createElement('input');
+      slider.type = 'range';
+      slider.min = p.min;
+      slider.max = p.max;
+      slider.value = p.val;
+      slider.style.cssText = 'width:100%;accent-color:#e88a2a;height:4px;';
+
+      slider.addEventListener('input', function() {
+        valSpan.textContent = this.value + p.unit;
+        document.querySelectorAll(p.target).forEach(function(el) {
+          el.style[p.css] = slider.value + p.unit;
+        });
+      });
+
+      row.appendChild(lbl);
+      row.appendChild(slider);
+      panel.appendChild(row);
+    });
+
+    // CSS Export Button
+    var exportBtn = document.createElement('button');
+    exportBtn.textContent = 'CSS kopieren';
+    exportBtn.style.cssText = 'width:100%;margin-top:12px;padding:8px;background:none;border:1.5px solid #e88a2a;color:#e88a2a;border-radius:4px;cursor:pointer;font:600 12px -apple-system,sans-serif;';
+    exportBtn.onclick = function() {
+      var css = '/* Header Tuning */\n';
+      params.forEach(function(p) {
+        var el = document.querySelector(p.target.split(',')[0]);
+        if (el) css += p.target.split(',')[0] + ' { ' + p.css.replace(/[A-Z]/g, function(m){return '-'+m.toLowerCase()}) + ': ' + el.style[p.css] + '; }\n';
+      });
+      navigator.clipboard.writeText(css).then(function() { exportBtn.textContent = 'Kopiert!'; setTimeout(function(){ exportBtn.textContent = 'CSS kopieren'; }, 1500); });
+    };
+    panel.appendChild(exportBtn);
+
+    // Close
+    var closeBtn = document.createElement('button');
+    closeBtn.textContent = '✕';
+    closeBtn.style.cssText = 'position:absolute;top:8px;right:8px;background:none;border:none;color:#747088;cursor:pointer;font-size:16px;';
+    closeBtn.onclick = function() { panel.remove(); };
+    panel.appendChild(closeBtn);
+
+    document.body.appendChild(panel);
+  })();
+  </script>
 </body>
 </html>

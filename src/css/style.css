@@ -401,6 +401,14 @@ a:active { color: var(--color-teal); }
    HERO
    ============================================ */
 
+/* Hero Banner — Desktop/Mobile Switch */
+.hero-mobile { display: none; }
+
+@media (max-width: 900px) {
+  .hero-desktop { display: none; }
+  .hero-mobile { display: block; }
+}
+
 /* Hero Banner Image */
 .hero-banner {
   position: relative;
@@ -1001,6 +1009,25 @@ a:active { color: var(--color-teal); }
   .page-hero-img {
     max-height: 280px;
     object-position: center 10%;
+  }
+}
+
+/* Chef Portrait */
+.chef-portrait {
+  float: right;
+  width: 280px;
+  margin: 0 0 1.5rem 2rem;
+  border-radius: var(--radius);
+  object-fit: cover;
+}
+
+@media (max-width: 600px) {
+  .chef-portrait {
+    float: none;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto 1.5rem;
+    display: block;
   }
 }
 

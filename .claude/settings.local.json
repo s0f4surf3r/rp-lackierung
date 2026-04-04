@@ -14,7 +14,8 @@
       "Bash(mkdir -p /Users/joho21/rp-lackierung/logo-entwuerfe)",
       "Bash(mv ~/Desktop/logo-v*.png /Users/joho21/rp-lackierung/logo-entwuerfe/)",
       "Read(//Users/joho21/Projekte/perfectCMS/admin/**)",
-      "Read(//Users/joho21/Projekte/perfectCMS/function/**)"
+      "Read(//Users/joho21/Projekte/perfectCMS/function/**)",
+      "Bash(cp:*)"
     ]
   }
 }

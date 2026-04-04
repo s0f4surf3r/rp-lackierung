@@ -9,6 +9,8 @@ description: R+P Lackierung GmbH in Boxberg – Ihr Familienbetrieb für Lackier
 
 ## Ihr Lackier- und Karosseriebetrieb in Boxberg
 
+<img src="/images/chef-david.webp" alt="David — Geschäftsführer R+P Lackierung GmbH" width="1024" height="1024" style="float:right;width:280px;margin:0 0 1.5rem 2rem;border-radius:6px;">
+
 R+P Lackierung GmbH ist ein inhabergeführter Familienbetrieb in der Robert-Bosch-Straße 6/B in 97944 Boxberg. Seit über 20 Jahren stehen wir für solide Handwerksarbeit, faire Preise und persönliche Beratung. Bei uns sind Sie keine Nummer – wir nehmen uns Zeit für jedes Fahrzeug und jeden Auftrag.
 
 ## Erfahrung und Qualifikation

@@ -12,7 +12,9 @@
       "Bash(cp /tmp/rp-wordmark-4.png ~/Desktop/logo-v4-scifi-nope.png)",
       "Bash(cp /tmp/rp-wordmark-5.png ~/Desktop/logo-v5-clean-glow.png)",
       "Bash(mkdir -p /Users/joho21/rp-lackierung/logo-entwuerfe)",
-      "Bash(mv ~/Desktop/logo-v*.png /Users/joho21/rp-lackierung/logo-entwuerfe/)"
+      "Bash(mv ~/Desktop/logo-v*.png /Users/joho21/rp-lackierung/logo-entwuerfe/)",
+      "Read(//Users/joho21/Projekte/perfectCMS/admin/**)",
+      "Read(//Users/joho21/Projekte/perfectCMS/function/**)"
     ]
   }
 }

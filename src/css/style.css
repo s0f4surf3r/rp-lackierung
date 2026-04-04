@@ -195,6 +195,15 @@ a:active { color: var(--color-teal); }
 
 .header-top .container {
   max-width: none;
+  padding-inline: calc(var(--space-inline) * 0.5);
+}
+
+@media (max-width: 480px) {
+  .header-top .container {
+    padding-inline: 0.75rem;
+  }
+  .header-email { display: none; }
+  .header-phone { font-size: 0.8rem; }
 }
 
 .header-top-inner {
@@ -249,12 +258,6 @@ a:active { color: var(--color-teal); }
 /* Logo */
 .logo {
   flex-shrink: 0;
-  margin-left: 0;
-}
-
-/* Header-Main benutzt eigenes Padding damit Logo am Content-Edge sitzt */
-.header-main-inner {
-  padding-inline: var(--space-inline);
 }
 
 .logo img {
@@ -476,6 +479,11 @@ a:active { color: var(--color-teal); }
 /* ============================================
    HERO
    ============================================ */
+
+/* Hero Banner — Dark/Light Bildwechsel */
+.hero-banner-light { display: none; }
+:root.light .hero-banner-dark { display: none; }
+:root.light .hero-banner-light { display: block; }
 
 /* Hero Banner Image */
 .hero-banner {

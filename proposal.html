@@ -12,16 +12,63 @@ body {
   color: #e8e4ec;
   line-height: 1.8;
   font-size: 17px;
-  padding: 3rem 1.5rem;
-  max-width: 680px;
-  margin: 0 auto;
+  padding: 0;
+  margin: 0;
 }
+.hero-img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
+.hero-overlay {
+  position: relative;
+  margin-top: -120px;
+  padding-top: 120px;
+  background: linear-gradient(to bottom, transparent, #0a0a10 80px);
+}
+.content { max-width: 680px; margin: 0 auto; padding: 0 1.5rem 3rem; }
 h1 { font-size: 2.2rem; font-weight: 800; color: #e88a2a; margin-bottom: 0.5rem; }
 h2 { font-size: 1.3rem; color: #9080c0; margin-top: 2.5rem; margin-bottom: 0.75rem; font-weight: 600; }
 p { margin-bottom: 1.2rem; color: #9490a0; }
 strong { color: #e8e4ec; }
 a { color: #e88a2a; }
-.price { font-size: 3rem; font-weight: 900; color: #e88a2a; margin: 1.5rem 0; }
+hr { border: none; height: 2px; background: linear-gradient(90deg, #6a4a90, #e88a2a); margin: 2.5rem 0; }
+.reveal-box {
+  margin: 2rem 0;
+  border: 1px solid #2e2e42;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.reveal-question {
+  width: 100%;
+  background: #14121e;
+  border: none;
+  color: #9080c0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: inherit;
+  padding: 1.2rem 1.5rem;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color 0.2s;
+}
+.reveal-question:hover { color: #e88a2a; }
+.reveal-question::after { content: '+'; font-size: 1.5rem; font-weight: 300; }
+.reveal-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  background: #0e0c18;
+}
+.reveal-box.open .reveal-answer { max-height: 400px; }
+.reveal-box.open .reveal-question::after { content: '\2212'; }
+.reveal-answer-inner { padding: 1.5rem; }
+.price { font-size: 3.5rem; font-weight: 900; color: #e88a2a; margin: 0.5rem 0; }
 .price small { font-size: 1rem; color: #9490a0; font-weight: 400; }
 .cta {
   margin-top: 3rem;
@@ -42,60 +89,118 @@ a { color: #e88a2a; }
   text-decoration: none;
   border: 2px solid;
   cursor: pointer;
+  transition: all 0.2s;
 }
 .btn-yes { border-color: #e88a2a; color: #e88a2a; background: transparent; }
 .btn-yes:hover { background: #e88a2a; color: #0a0a10; }
 .btn-no { border-color: #2e2e42; color: #9490a0; background: transparent; }
 .btn-no:hover { border-color: #9490a0; }
 .note { font-size: 0.85rem; color: #747088; margin-top: 2rem; font-style: italic; }
-.preview { margin: 2rem 0; border-radius: 8px; overflow: hidden; border: 1px solid #2e2e42; }
-.preview img { width: 100%; display: block; }
-hr { border: none; height: 1px; background: linear-gradient(90deg, #6a4a90, #e88a2a); margin: 2.5rem 0; }
+.logo-bar { padding: 1.5rem; background: #0a0a10; }
+.logo-bar img { height: 40px; }
+
+/* Preview Overlay */
+.preview-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(10, 10, 16, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  cursor: pointer;
+}
+.preview-overlay.open { display: flex; }
+.preview-overlay img {
+  max-width: 90vw;
+  max-height: 70vh;
+  border-radius: 12px;
+  box-shadow: 0 20px 80px rgba(0,0,0,0.6);
+  border: 1px solid #2e2e42;
+}
+.preview-overlay .hint {
+  color: #9490a0;
+  font-size: 0.9rem;
+}
+.preview-overlay .go-live {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  border: 2px solid #e88a2a;
+  color: #e88a2a;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.preview-overlay .go-live:hover {
+  background: #e88a2a;
+  color: #0a0a10;
+}
 </style>
 </head>
 <body>
 
-<h1>David.</h1>
-<p>Ich hab letzte Nacht nicht geschlafen. Deine Seite und euer Logo haben mich total inspiriert — und mein System ist erst gestern fertig geworden. Ich konnte nicht warten. Musste es einfach testen.</p>
+<div class="logo-bar">
+  <img src="src/images/logo-original.png" alt="R+P Lackierung">
+</div>
 
-<p>Das Ergebnis ist keine PowerPoint und kein Kostenvoranschlag. Es ist eine <strong>fertige Website</strong>.</p>
+<img src="src/images/hero-paint.webp" alt="" class="hero-img">
+
+<div class="hero-overlay">
+<div class="content">
+
+<h1>Hi David!</h1>
+<p>Ich hab letzte Nacht etwas am Rad gedreht. Euer Logo und eure Seite haben mich angefixt &mdash; und mein System ist erst gestern fertig geworden. Ich konnte nicht abwarten. Musste es einfach testen.</p>
+
+<p>Das hier ist keine PowerPoint und kein Angebot. Es ist eine <strong>fertige Website</strong>. Einfach so.</p>
 
 <hr>
 
 <h2>Was ich gebaut habe</h2>
-<p>Eine komplette neue Website für R+P Lackierung. 34 Seiten. Dunkles Premium-Design. Jede Leistung hat eine eigene Seite. News-Bereich für saisonale Tipps. Alles responsive, alles schnell, alles sauber.</p>
-
-<div class="preview">
-  <a href="https://rp-lackierung.pages.dev/" target="_blank">
-    <img src="images/og-image.jpg" alt="R+P Lackierung Website Preview">
-  </a>
-</div>
-
-<p><strong>Live anschauen:</strong> <a href="https://rp-lackierung.pages.dev/" target="_blank">rp-lackierung.pages.dev</a></p>
-
-<h2>Was es kostet</h2>
-
-<div class="price">0 € <small>— kein Witz.</small></div>
-
-<p>Ich hatte eine durchgedrehte Nacht, ein neues System das getestet werden musste, und dein Logo als Inspiration. Das hier ist ein <strong>Geschenk</strong> — kein Vertrag, keine Verpflichtung, keine versteckten Kosten.</p>
-
-<p>Wenn du die Seite willst, gehört sie dir. Domain, Hosting, alles. Wenn nicht — kein Problem. Nein sagen ist absolut OK.</p>
+<p>Eine komplette neue Website f&uuml;r R+P Lackierung. 34 Seiten. Dark-Mode Premium-Design. Jede Leistung hat eine eigene Seite. News-Bereich f&uuml;r saisonale Tipps. KI-Chat-Agent der Kundenfragen beantwortet. CMS damit ihr selbst Texte und Bilder &auml;ndern k&ouml;nnt. Alles responsive, alles schnell, alles sauber.</p>
 
 <h2>Was drin ist</h2>
 <p>
-  <strong>34 Seiten</strong> — Startseite, Wir über uns, alle Werkstatt-Leistungen, alle Lackier-Leistungen, Oldtimer, Kontakt, Impressum, Datenschutz<br>
-  <strong>12 News-Artikel</strong> — saisonale Tipps (Reifenwechsel, Frostschutz, Pollensaison…)<br>
-  <strong>KI-generierte Bilder</strong> — Werkstatt, Oldtimer-Restauration, Team<br>
+  <strong>34 Seiten</strong> &mdash; Startseite, Wir &uuml;ber uns, alle Werkstatt-Leistungen, alle Lackier-Leistungen, Oldtimer, Kontakt, Impressum, Datenschutz<br>
+  <strong>12 News-Artikel</strong> &mdash; saisonale Tipps (Reifenwechsel, Frostschutz, Pollensaison&hellip;)<br>
+  <strong>KI-Chat-Agent</strong> &mdash; Kunden stellen Fragen direkt auf der Seite<br>
+  <strong>CMS</strong> &mdash; ihr k&ouml;nnt selbst News schreiben und Bilder tauschen<br>
+  <strong>Bilder</strong> &mdash; KI-generiert als Platzhalter, werden ersetzt sobald ihr echte Fotos liefert<br>
   <strong>Dark + Light Mode</strong><br>
-  <strong>Mobiloptimiert</strong> — sieht auf dem Handy genauso gut aus<br>
-  <strong>SEO</strong> — Google findet jede Seite
+  <strong>Mobiloptimiert</strong><br>
+  <strong>SEO</strong> &mdash; Google findet jede Seite
+</p>
+
+<div class="reveal-box" onclick="this.classList.toggle('open')">
+  <button class="reveal-question">Was kostet das?</button>
+  <div class="reveal-answer">
+    <div class="reveal-answer-inner">
+      <div class="price">0 &euro; <small>&mdash; kein Witz.</small></div>
+      <p>Ich hatte eine durchgedrehte Nacht, ein neues System das getestet werden musste, und euer Logo als Inspiration. Das hier ist ein <strong>Geschenk</strong> &mdash; kein Vertrag, keine Verpflichtung, keine versteckten Kosten.</p>
+      <p>Wenn du die Seite willst, geh&ouml;rt sie dir. Domain, Hosting, alles. Wenn nicht &mdash; kein Problem.</p>
+    </div>
+  </div>
+</div>
+
+<h2>Zugangsdaten</h2>
+<p>Falls du die Seite ausprobieren willst &mdash; hier kannst du Texte und Bilder selbst &auml;ndern:</p>
+<p>
+  <strong>CMS:</strong> <a href="https://rp-lackierung.pages.dev/admin/" target="_blank">rp-lackierung.pages.dev/admin</a><br>
+  <strong>E-Mail:</strong> info@rp-lackierung.de<br>
+  <strong>Passwort:</strong> rp2026!
 </p>
 
 <h2>Was noch kommen kann</h2>
 <p>
-  Chat-Agent — Kunden stellen Fragen direkt auf der Seite<br>
-  CMS — du oder Carmen könnt selbst News schreiben, Bilder tauschen<br>
-  Eigene Domain — rp-lackierung.de zeigt auf die neue Seite
+  <strong>Echte Fotos</strong> &mdash; Teamfoto, Werkstatt, Arbeitssituationen. Das w&auml;re das Wichtigste, schickt uns einfach ein paar Bilder<br>
+  <strong>Eigene Domain</strong> &mdash; rp-lackierung.de zeigt auf die neue Seite<br>
+  <strong>Individuelle Anpassungen</strong> &mdash; Farben, Layout, Texte, alles m&ouml;glich. Einziges Problem: meine Zeit. Aber wir kriegen das hin<br>
+  <strong>Social Media</strong> &mdash; Instagram/Facebook wenn ihr wollt
 </p>
 
 <hr>
@@ -103,10 +208,20 @@ hr { border: none; height: 1px; background: linear-gradient(90deg, #6a4a90, #e88
 <div class="cta">
   <p><strong>Willst du die Seite sehen?</strong></p>
   <div class="btn-group">
-    <a href="https://rp-lackierung.pages.dev/" class="btn btn-yes" target="_blank">Ja, zeig mir das</a>
+    <button class="btn btn-yes" onclick="document.getElementById('preview').classList.add('open')">Ja, zeig mir das</button>
     <a href="mailto:jochen.hornung@me.com?subject=Danke%20aber%20nein&body=Hey%20Jochen%2C%20danke%20f%C3%BCr%20den%20Wahnsinn%20aber%20ich%20brauch%20das%20nicht." class="btn btn-no">Nein danke</a>
   </div>
-  <p class="note">Ich weiß dass die Seite "big" ist. Muss man erstmal mit klar kommen. Kein Druck.</p>
+  <p class="note">Ich wei&szlig; dass die Seite &ldquo;big&rdquo; ist. Muss man erstmal mit klar kommen. Kein Druck. Nein sagen ist absolut OK.</p>
+</div>
+
+</div>
+</div>
+
+<!-- Preview Overlay -->
+<div class="preview-overlay" id="preview" onclick="if(event.target===this)this.classList.remove('open')">
+  <img src="src/images/og-image.jpg" alt="Website Preview">
+  <a href="https://rp-lackierung.pages.dev/" target="_blank" class="go-live">Live-Seite &ouml;ffnen &rarr;</a>
+  <span class="hint">Klick au&szlig;erhalb zum Schlie&szlig;en</span>
 </div>
 
 </body>

@@ -11,6 +11,10 @@
     || document.querySelector('meta[name="cms-api-url"]')?.content
     || '';
 
+  // --- Auto-Login (Demo-Modus für David) ---
+  const AUTO_LOGIN_EMAIL = 'info@rp-lackierung.de';
+  const AUTO_LOGIN_PASS = 'rp2026!';
+
   // --- State ---
   let token = localStorage.getItem('cms_token') || null;
   let contentCache = null;
@@ -85,7 +89,7 @@
     window.location.hash = hash;
   }
 
-  function handleRoute() {
+  async function handleRoute() {
     const hash = window.location.hash || '#';
 
     // Magic Link Token — immer verarbeiten, auch ohne bestehende Session
@@ -96,6 +100,19 @@
     }
 
     if (!token) {
+      // Auto-Login im Demo-Modus
+      if (AUTO_LOGIN_EMAIL && AUTO_LOGIN_PASS) {
+        try {
+          const res = await api('POST', '/api/login', { email: AUTO_LOGIN_EMAIL, password: AUTO_LOGIN_PASS });
+          if (res.token) {
+            token = res.token;
+            localStorage.setItem('cms_token', token);
+            showView('list');
+            loadContentList();
+            return;
+          }
+        } catch {}
+      }
       showView('login');
       return;
     }

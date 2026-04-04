@@ -15,7 +15,10 @@
       "Bash(mv ~/Desktop/logo-v*.png /Users/joho21/rp-lackierung/logo-entwuerfe/)",
       "Read(//Users/joho21/Projekte/perfectCMS/admin/**)",
       "Read(//Users/joho21/Projekte/perfectCMS/function/**)",
-      "Bash(cp:*)"
+      "Bash(cp:*)",
+      "Read(//private/tmp/rp-chat-pkg/**)",
+      "Bash(cp /Users/joho21/Projekte/perfectCMS/function/handler.js /tmp/handler-rp-patched.js)",
+      "Bash(sed -i '' \"s|const TEXTE_PATH = 'src/texte';|const TEXTE_PATH = process.env.CMS_CONTENT_DIR || 'src/texte';|\" /tmp/handler-rp-patched.js)"
     ]
   }
 }

@@ -21,7 +21,6 @@
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="/css/style.css">
-  <script>(function(){var t=localStorage.getItem('rp-theme')||'dark';var d=t==='light'||(t==='auto'&&!window.matchMedia('(prefers-color-scheme:dark)').matches);if(!d){}else{document.documentElement.classList.add('light')}})()</script>
 </head>
 <body class="{{ bodyClass or '' }}">
 
@@ -93,12 +92,9 @@
     </div>
   </footer>
 
-  <div class="fab-stack">
-    <button class="fab-theme" aria-label="Theme wechseln" onclick="toggleTheme()">&#9790;</button>
-    <a href="tel:07930990111" class="fab-phone" aria-label="Anrufen">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.55.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.25 1.02l-2.2 2.22z"/></svg>
-    </a>
-  </div>
+  <a href="tel:07930990111" class="fab-phone" aria-label="Anrufen">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.55.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.25 1.02l-2.2 2.22z"/></svg>
+  </a>
 
   <script>
   /* Burger toggle */
@@ -136,35 +132,6 @@
       burger.setAttribute('aria-expanded', 'false');
     });
   });
-
-  /* Theme Toggle: Dark → Light → Auto */
-  var THEME_KEY = 'rp-theme';
-  var modes = ['dark', 'light', 'auto'];
-  var icons = { dark: '\u263E', light: '\u2600', auto: '\u25D0' };
-  var themeMode = localStorage.getItem(THEME_KEY) || 'dark';
-
-  function applyTheme() {
-    var root = document.documentElement;
-    var isDark = themeMode === 'dark' ||
-      (themeMode === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-    if (isDark) {
-      root.classList.remove('light');
-    } else {
-      root.classList.add('light');
-    }
-    var btn = document.querySelector('.fab-theme');
-    if (btn) btn.textContent = icons[themeMode];
-    document.querySelector('meta[name="theme-color"]').content = isDark ? '#0a0a10' : '#f2f0f4';
-  }
-
-  function toggleTheme() {
-    themeMode = modes[(modes.indexOf(themeMode) + 1) % 3];
-    localStorage.setItem(THEME_KEY, themeMode);
-    applyTheme();
-  }
-
-  applyTheme();
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
 
   /* Scroll Reveal (global) */
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -216,14 +183,14 @@
     // Bubble
     var bbl=document.createElement('button');
     bbl.className='chat-fab';
-    bbl.innerHTML='💬';
+    bbl.innerHTML='<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/><path d="M7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/></svg>';
     bbl.setAttribute('aria-label','Chat öffnen');
-    bbl.style.cssText='position:fixed;bottom:6rem;left:1.5rem;width:56px;height:56px;border-radius:50%;background:'+ACCENT+';color:#fff;border:none;cursor:pointer;font-size:24px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.3);z-index:9999;transition:transform 0.2s;';
+    bbl.style.cssText='position:fixed;bottom:1.5rem;left:1.5rem;width:44px;height:44px;border-radius:50%;background:var(--color-surface,#14121e);color:var(--color-muted,#9490a0);border:1.5px solid var(--color-border,#2e2e42);cursor:pointer;font-size:24px;display:flex;align-items:center;justify-content:center;z-index:9999;transition:all 0.25s;';
     document.body.appendChild(bbl);
 
     // Panel
     var pnl=document.createElement('div');
-    pnl.style.cssText='position:fixed;bottom:6rem;left:1.5rem;width:380px;max-width:calc(100vw - 2rem);height:480px;max-height:calc(100vh - 8rem);background:#1a1a28;border:1px solid #2e2e42;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,0.4);display:none;flex-direction:column;overflow:hidden;z-index:9999;font-family:inherit;font-size:15px;color:#e8e4ec;';
+    pnl.style.cssText='position:fixed;bottom:5rem;left:1.5rem;width:380px;max-width:calc(100vw - 2rem);height:480px;max-height:calc(100vh - 8rem);background:#1a1a28;border:1px solid #2e2e42;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,0.4);display:none;flex-direction:column;overflow:hidden;z-index:9999;font-family:inherit;font-size:15px;color:#e8e4ec;';
     pnl.innerHTML='<div style="padding:14px 18px;background:linear-gradient(90deg,#6a4a90,'+ACCENT+');display:flex;justify-content:space-between;align-items:center;flex-shrink:0"><span style="font-weight:600;font-size:15px;color:#fff">R+P Assistent</span><button id="chat-close" style="background:none;border:none;color:#fff;font-size:20px;cursor:pointer;width:32px;height:32px;display:flex;align-items:center;justify-content:center">✕</button></div><div id="chat-msgs" style="flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px"></div><div style="padding:10px 14px;border-top:1px solid #2e2e42;display:flex;gap:8px;flex-shrink:0;background:#14121e"><input id="chat-in" type="text" placeholder="Nachricht schreiben..." style="flex:1;border:1px solid #2e2e42;border-radius:20px;padding:10px 16px;font-size:15px;font-family:inherit;outline:none;background:#1a1a28;color:#e8e4ec"><button id="chat-send" style="width:40px;height:40px;border-radius:50%;background:'+ACCENT+';color:#fff;border:none;cursor:pointer;font-size:18px;flex-shrink:0">↑</button></div>';
     document.body.appendChild(pnl);
 

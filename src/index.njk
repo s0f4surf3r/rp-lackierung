@@ -62,7 +62,7 @@ description: "R+P Lackierung GmbH — Ihr Lackierer- & Kfz-Meister in Boxberg: A
 
     <div class="news-grid">
       {%- for post in collections.news | reverse %}
-      {%- if loop.index <= 12 %}
+      {%- if loop.index <= 6 %}
       <article class="news-card reveal">
         {% if post.data.image %}
         <img src="{{ post.data.image }}" alt="{{ post.data.title }}" class="news-card-image" width="1024" height="1024" loading="lazy">

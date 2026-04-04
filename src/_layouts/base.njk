@@ -21,6 +21,7 @@
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="/css/style.css">
+  <script>(function(){var t=localStorage.getItem('rp-theme')||'dark';var d=t==='light'||(t==='auto'&&!window.matchMedia('(prefers-color-scheme:dark)').matches);if(!d){}else{document.documentElement.classList.add('light')}})()</script>
 </head>
 <body class="{{ bodyClass or '' }}">
 
@@ -101,9 +102,12 @@
     </div>
   </footer>
 
-  <a href="tel:07930990111" class="fab-phone" aria-label="Anrufen">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.55.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.25 1.02l-2.2 2.22z"/></svg>
-  </a>
+  <div class="fab-stack">
+    <button class="fab-theme" aria-label="Theme wechseln" onclick="toggleTheme()">&#9790;</button>
+    <a href="tel:07930990111" class="fab-phone" aria-label="Anrufen">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.55.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.25 1.02l-2.2 2.22z"/></svg>
+    </a>
+  </div>
 
   <script>
   /* Burger toggle */
@@ -141,6 +145,35 @@
       burger.setAttribute('aria-expanded', 'false');
     });
   });
+
+  /* Theme Toggle: Dark → Light → Auto */
+  var THEME_KEY = 'rp-theme';
+  var modes = ['dark', 'light', 'auto'];
+  var icons = { dark: '\u263E', light: '\u2600', auto: '\u25D0' };
+  var themeMode = localStorage.getItem(THEME_KEY) || 'dark';
+
+  function applyTheme() {
+    var root = document.documentElement;
+    var isDark = themeMode === 'dark' ||
+      (themeMode === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    if (isDark) {
+      root.classList.remove('light');
+    } else {
+      root.classList.add('light');
+    }
+    var btn = document.querySelector('.fab-theme');
+    if (btn) btn.textContent = icons[themeMode];
+    document.querySelector('meta[name="theme-color"]').content = isDark ? '#0a0a10' : '#f2f0f4';
+  }
+
+  function toggleTheme() {
+    themeMode = modes[(modes.indexOf(themeMode) + 1) % 3];
+    localStorage.setItem(THEME_KEY, themeMode);
+    applyTheme();
+  }
+
+  applyTheme();
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
 
   /* Scroll Reveal (global) */
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {

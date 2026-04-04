@@ -55,6 +55,9 @@
   --transition: 0.25s ease;
 }
 
+/* === Light Mode === TODO: eigenständige Palette mit Wahrnehmungsgrammatik bauen */
+/* Deaktiviert bis richtig durchdacht */
+
 /* === Base === */
 html {
   font-size: 100%;
@@ -201,13 +204,13 @@ a:active { color: var(--color-teal); }
 }
 
 .logo img {
-  height: 70px;
+  height: 100px;
   width: auto;
   filter: drop-shadow(0 0 12px var(--color-glow));
 }
 
 @media (max-width: 900px) {
-  .logo img { height: 50px; }
+  .logo img { height: 64px; }
 }
 
 /* === Navigation === */
@@ -824,8 +827,7 @@ a:active { color: var(--color-teal); }
   padding: var(--space-card);
   border-radius: var(--radius);
   border: 1px solid var(--color-border);
-  border-left: 3px solid var(--color-violet);
-  border-image: linear-gradient(to bottom, var(--color-violet), var(--color-accent)) 1;
+  border-left: 3px solid var(--color-border);
   transition: border-color var(--transition), box-shadow var(--transition);
 }
 
@@ -1093,10 +1095,39 @@ a:active { color: var(--color-teal); }
    FAB (Floating Phone Button — Mobile)
    ============================================ */
 
-.fab-phone {
+.fab-stack {
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  z-index: 90;
+}
+
+.fab-theme {
+  width: 44px;
+  height: 44px;
+  background: var(--color-surface);
+  color: var(--color-muted);
+  border: 1.5px solid var(--color-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+@media (hover: hover) {
+  .fab-theme:hover {
+    border-color: var(--color-accent);
+    color: var(--color-light);
+  }
+}
+
+.fab-phone {
   width: 56px;
   height: 56px;
   background: var(--color-accent);
@@ -1105,15 +1136,13 @@ a:active { color: var(--color-teal); }
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 20px rgba(192, 148, 92, 0.4);
-  z-index: 90;
+  box-shadow: 0 4px 20px var(--color-glow);
   transition: transform var(--transition), box-shadow var(--transition);
 }
 
 @media (hover: hover) {
   .fab-phone:hover {
     transform: scale(1.1);
-    box-shadow: 0 6px 28px rgba(192, 148, 92, 0.5);
     color: var(--color-bg);
   }
 }

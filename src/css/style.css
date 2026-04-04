@@ -55,8 +55,56 @@
   --transition: 0.25s ease;
 }
 
-/* === Light Mode === TODO: eigenständige Palette mit Wahrnehmungsgrammatik bauen */
-/* Deaktiviert bis richtig durchdacht */
+/* === Light Mode — eigenständige Palette ===
+   Nicht invertiert, sondern neu gedacht.
+   Gleiche Energie (Asphalt+Flamme), andere Kontrastlogik. */
+:root.light {
+  --color-bg:        #f4f2f6;
+  --color-surface:   #ffffff;
+  --color-card:      #ede8f2;
+  --color-border:    #d0c8dc;
+  --color-accent:    #a85010;
+  --color-violet:    #4a2a70;
+  --color-teal:      #5040a0;
+  --color-warm:      #b82818;
+  --color-light:     #1c1428;
+  --color-muted:     #5a506a;
+  --color-dim:       #8880a0;
+  --color-glow:      rgba(184, 90, 16, 0.08);
+  --color-glow-violet: rgba(74, 42, 112, 0.06);
+}
+
+/* Light: Header bleibt Gradient (funktioniert auf hell+dunkel) */
+:root.light .site-header {
+  background: rgba(244, 242, 246, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Light: Hero Overlay nach hellem BG faden */
+:root.light .hero-banner-overlay {
+  background: linear-gradient(to bottom,
+    rgba(244, 242, 246, 0.05) 0%,
+    rgba(244, 242, 246, 0.3) 40%,
+    rgba(244, 242, 246, 0.75) 70%,
+    var(--color-bg) 95%);
+}
+
+/* Light: Kein Text-Glow, kein Logo-Glow */
+:root.light .hero-content h1 { text-shadow: none; }
+:root.light .logo img { filter: brightness(0.6) contrast(1.3); }
+
+/* Light: Services-Section nicht invertieren — subtil tinted */
+:root.light .services-section {
+  background: var(--color-card);
+  border-color: var(--color-border);
+}
+
+/* Light: Selection */
+:root.light ::selection { background: var(--color-accent); color: #fff; }
+
+/* Light: Footer */
+:root.light .site-footer { background: var(--color-card); }
 
 /* === Base === */
 html {
@@ -201,16 +249,22 @@ a:active { color: var(--color-teal); }
 /* Logo */
 .logo {
   flex-shrink: 0;
+  margin-left: 0;
+}
+
+/* Header-Main benutzt eigenes Padding damit Logo am Content-Edge sitzt */
+.header-main-inner {
+  padding-inline: var(--space-inline);
 }
 
 .logo img {
-  height: 100px;
+  height: 150px;
   width: auto;
   filter: drop-shadow(0 0 12px var(--color-glow));
 }
 
 @media (max-width: 900px) {
-  .logo img { height: 64px; }
+  .logo img { height: 80px; }
 }
 
 /* === Navigation === */

@@ -203,5 +203,40 @@
     ]
   }
   </script>
+
+  {# Chat-Widget — R+P Ask Me Anything #}
+  <script>
+  (function(){
+    var API='https://perfectcmstm6mdmqs-rp-chat-api.functions.fnc.fr-par.scw.cloud';
+    var TOKEN='0f50ce4a65004b9b918c98daeeca5394';
+    var ACCENT='#e88a2a';
+    var WELCOME='Guten Tag! Wie kann ich Ihnen weiterhelfen? Fragen Sie mich zu Leistungen, Öffnungszeiten oder Terminvereinbarung.';
+    var isOpen=false,isLoading=false,history=[];
+
+    // Bubble
+    var bbl=document.createElement('button');
+    bbl.className='chat-fab';
+    bbl.innerHTML='💬';
+    bbl.setAttribute('aria-label','Chat öffnen');
+    bbl.style.cssText='position:fixed;bottom:6rem;left:1.5rem;width:56px;height:56px;border-radius:50%;background:'+ACCENT+';color:#fff;border:none;cursor:pointer;font-size:24px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.3);z-index:9999;transition:transform 0.2s;';
+    document.body.appendChild(bbl);
+
+    // Panel
+    var pnl=document.createElement('div');
+    pnl.style.cssText='position:fixed;bottom:6rem;left:1.5rem;width:380px;max-width:calc(100vw - 2rem);height:480px;max-height:calc(100vh - 8rem);background:#1a1a28;border:1px solid #2e2e42;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,0.4);display:none;flex-direction:column;overflow:hidden;z-index:9999;font-family:inherit;font-size:15px;color:#e8e4ec;';
+    pnl.innerHTML='<div style="padding:14px 18px;background:linear-gradient(90deg,#6a4a90,'+ACCENT+');display:flex;justify-content:space-between;align-items:center;flex-shrink:0"><span style="font-weight:600;font-size:15px;color:#fff">R+P Assistent</span><button id="chat-close" style="background:none;border:none;color:#fff;font-size:20px;cursor:pointer;width:32px;height:32px;display:flex;align-items:center;justify-content:center">✕</button></div><div id="chat-msgs" style="flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px"></div><div style="padding:10px 14px;border-top:1px solid #2e2e42;display:flex;gap:8px;flex-shrink:0;background:#14121e"><input id="chat-in" type="text" placeholder="Nachricht schreiben..." style="flex:1;border:1px solid #2e2e42;border-radius:20px;padding:10px 16px;font-size:15px;font-family:inherit;outline:none;background:#1a1a28;color:#e8e4ec"><button id="chat-send" style="width:40px;height:40px;border-radius:50%;background:'+ACCENT+';color:#fff;border:none;cursor:pointer;font-size:18px;flex-shrink:0">↑</button></div>';
+    document.body.appendChild(pnl);
+
+    var msgs=pnl.querySelector('#chat-msgs'),inp=pnl.querySelector('#chat-in'),sendBtn=pnl.querySelector('#chat-send');
+
+    function addMsg(role,text){var d=document.createElement('div');d.style.cssText='max-width:85%;padding:10px 14px;border-radius:14px;word-wrap:break-word;white-space:pre-wrap;'+(role==='user'?'align-self:flex-end;background:'+ACCENT+';color:#fff;border-bottom-right-radius:4px':'align-self:flex-start;background:#232733;color:#e8e4ec;border-bottom-left-radius:4px');d.textContent=text;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;return d;}
+
+    function toggle(){isOpen=!isOpen;pnl.style.display=isOpen?'flex':'none';bbl.style.transform=isOpen?'scale(0)':'scale(1)';bbl.style.pointerEvents=isOpen?'none':'auto';if(isOpen&&msgs.children.length===0)addMsg('assistant',WELCOME);if(isOpen)inp.focus();}
+
+    async function send(){var text=inp.value.trim();if(!text||isLoading)return;addMsg('user',text);history.push({role:'user',content:text});inp.value='';isLoading=true;sendBtn.disabled=true;var typing=addMsg('assistant','···');try{var res=await fetch(API+'/api/chat',{method:'POST',headers:{'Content-Type':'application/json','X-Chat-Token':TOKEN},body:JSON.stringify({message:text,history:history.slice(0,-1)})});var data=await res.json();typing.remove();if(data.reply){addMsg('assistant',data.reply);history.push({role:'assistant',content:data.reply})}else{addMsg('assistant','Entschuldigung, da ist etwas schiefgegangen. Rufen Sie uns an: 07930 / 990111')}}catch(e){typing.remove();addMsg('assistant','Verbindung fehlgeschlagen. Bitte versuchen Sie es später.')}isLoading=false;sendBtn.disabled=false;inp.focus();}
+
+    bbl.onclick=toggle;pnl.querySelector('#chat-close').onclick=toggle;sendBtn.onclick=send;inp.onkeydown=function(e){if(e.key==='Enter')send()};document.addEventListener('keydown',function(e){if(e.key==='Escape'&&isOpen)toggle()});
+  })();
+  </script>
 </body>
 </html>

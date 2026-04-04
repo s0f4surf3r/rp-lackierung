@@ -188,7 +188,7 @@ a:active { color: var(--color-teal); }
 /* Header Top Bar — Gradient-Accent-Linie */
 .header-top {
   background: linear-gradient(90deg, var(--color-violet), var(--color-accent));
-  height: 4px;
+  height: 36px;
 }
 
 .header-top .container {
@@ -255,8 +255,10 @@ a:active { color: var(--color-teal); }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-inline);
-  gap: 1rem;
+  padding-inline: var(--space-inline);
+  padding-block: 1.4rem;
+  gap: 1.5rem;
+  min-height: 80px;
 }
 
 /* Logo */

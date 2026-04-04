@@ -147,13 +147,14 @@ a:active { color: var(--color-teal); }
   background: rgba(18, 20, 26, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 4px solid transparent;
+  border-image: linear-gradient(90deg, var(--color-violet), var(--color-accent)) 1;
 }
 
 /* Header Top Bar — Gradient-Accent-Linie */
 .header-top {
   background: linear-gradient(90deg, var(--color-violet), var(--color-accent));
-  height: 36px;
+  height: 19px;
 }
 
 @media (max-width: 480px) {
@@ -172,7 +173,7 @@ a:active { color: var(--color-teal); }
   align-items: center;
   justify-content: space-between;
   padding-inline: var(--space-inline);
-  padding-block: 1.4rem;
+  padding-block: 31px;
   gap: 1.5rem;
   min-height: 80px;
 }
@@ -182,18 +183,22 @@ a:active { color: var(--color-teal); }
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  gap: 0;
+  gap: 15px;
 }
 
 .logo-rp {
-  height: 52px;
+  height: 63px;
   width: auto;
+  margin-left: -8px;
+  margin-top: 2px;
   filter: drop-shadow(0 0 14px var(--color-glow));
 }
 
 .logo-wordmark {
-  height: 32px;
+  height: 31px;
   width: auto;
+  margin-left: 1px;
+  margin-top: 1px;
 }
 
 @media (max-width: 900px) {

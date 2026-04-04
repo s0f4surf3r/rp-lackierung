@@ -216,13 +216,19 @@
     if (!location.search.includes('tune')) return;
 
     var params = [
-      { label: 'Gradient-Balken Höhe', prop: '--tune-bar-h', target: '.header-top', css: 'height', min: 0, max: 60, val: 36, unit: 'px' },
-      { label: 'Header Padding vertikal', prop: '--tune-hdr-py', target: '.header-main-inner', css: 'paddingBlock', min: 4, max: 40, val: 22, unit: 'px' },
-      { label: 'Header Padding horizontal', prop: '--tune-hdr-px', target: '.header-main-inner', css: 'paddingInline', min: 8, max: 60, val: 20, unit: 'px' },
-      { label: 'Logo Höhe', prop: '--tune-logo-h', target: '.logo img', css: 'height', min: 24, max: 120, val: 48, unit: 'px' },
-      { label: 'Nav Font Size', prop: '--tune-nav-fs', target: '.main-nav > a, .nav-dropdown-toggle', css: 'fontSize', min: 10, max: 20, val: 14, unit: 'px' },
-      { label: 'Nav Gap', prop: '--tune-nav-gap', target: '.header-main-inner', css: 'gap', min: 4, max: 40, val: 24, unit: 'px' },
-      { label: 'Border unten', prop: '--tune-border', target: '.site-header', css: 'borderBottomWidth', min: 0, max: 4, val: 1, unit: 'px' },
+      { label: 'Gradient-Balken Höhe', target: '.header-top', css: 'height', min: 0, max: 60, val: 28, unit: 'px' },
+      { label: 'Header Padding vertikal', target: '.header-main-inner', css: 'paddingBlock', min: 4, max: 50, val: 31, unit: 'px' },
+      { label: 'Header Padding horizontal', target: '.header-main-inner', css: 'paddingInline', min: 8, max: 60, val: 20, unit: 'px' },
+      { label: 'R+P Höhe', target: '.logo-rp', css: 'height', min: 20, max: 100, val: 52, unit: 'px' },
+      { label: 'R+P X-Offset', target: '.logo-rp', css: 'marginLeft', min: -20, max: 20, val: 0, unit: 'px' },
+      { label: 'R+P Y-Offset', target: '.logo-rp', css: 'marginTop', min: -20, max: 20, val: 0, unit: 'px' },
+      { label: 'Wordmark Höhe', target: '.logo-wordmark', css: 'height', min: 14, max: 60, val: 32, unit: 'px' },
+      { label: 'Wordmark X-Offset', target: '.logo-wordmark', css: 'marginLeft', min: -20, max: 20, val: 0, unit: 'px' },
+      { label: 'Wordmark Y-Offset', target: '.logo-wordmark', css: 'marginTop', min: -20, max: 20, val: 0, unit: 'px' },
+      { label: 'Logo Gap', target: '.logo', css: 'gap', min: 0, max: 20, val: 0, unit: 'px' },
+      { label: 'Nav Font Size', target: '.main-nav > a, .nav-dropdown-toggle', css: 'fontSize', min: 10, max: 20, val: 14, unit: 'px' },
+      { label: 'Nav Gap', target: '.header-main-inner', css: 'gap', min: 4, max: 40, val: 24, unit: 'px' },
+      { label: 'Border unten', target: '.site-header', css: 'borderBottomWidth', min: 0, max: 4, val: 1, unit: 'px' },
     ];
 
     var panel = document.createElement('div');

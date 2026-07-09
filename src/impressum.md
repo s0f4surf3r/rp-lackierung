@@ -2,21 +2,16 @@
 layout: page.njk
 title: Impressum
 permalink: /impressum/
-description: Impressum der R+P Lackierung GmbH in Boxberg.
+description: Impressum der R+P Lackierung GmbH.
 ---
 
 ## Angaben gemäß § 5 TMG
 
 **R+P Lackierung GmbH**<br>
-Robert-Bosch-Straße 6/B<br>
-97944 Boxberg
+<em>Anschrift in dieser Referenz-Ansicht entfernt</em>
 
 **Telefon:**&ensp;07930 / 990111<br>
 **E-Mail:**&ensp;info@rp-lackierung.de
-
-## Vertretungsberechtigte Geschäftsführer
-
-David Simic, Niels Wolter
 
 ## Registereintrag
 
@@ -30,9 +25,8 @@ DE 177 724 588
 
 ## Inhaltlich verantwortlich
 
-David Simic<br>
-Robert-Bosch-Straße 6/B<br>
-97944 Boxberg
+Die Geschäftsführung der R+P Lackierung GmbH<br>
+<em>Kontaktdaten in dieser Referenz-Ansicht entfernt</em>
 
 ## Streitschlichtung
 

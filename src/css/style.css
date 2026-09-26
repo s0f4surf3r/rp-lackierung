@@ -458,6 +458,17 @@ a:active { color: var(--color-teal); }
   }
 }
 
+/* Desktop: Banner schrumpft mit der Fensterhöhe, damit Headline + Telefon-Button
+   immer ohne Scrollen sichtbar sind (Header ~150px + Content ~340px + Luft) */
+@media (min-width: 901px) {
+  .hero-banner {
+    max-height: none;
+  }
+  .hero-banner img {
+    height: clamp(160px, calc(100svh - 540px), 480px);
+  }
+}
+
 /* Hero Content */
 .hero {
   padding-block: var(--space-section);
